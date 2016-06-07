@@ -1,0 +1,81 @@
+<HTML>
+<HEAD>
+<SCRIPT type="text/javascript">
+
+function calcNumber(thisNum)
+{
+        document.calcForm.calcDisplay.value += ("" + thisNum);
+}
+
+function calcClear()
+{
+        document.calcForm.calcDisplay.value = "";
+}
+
+function calcOperator(thisOp)
+{
+        document.calcForm.calcOperatorMemory.value = thisOp;
+        document.calcForm.calcNumberMemory.value = document.calcForm.calcDisplay.value;
+        document.calcForm.calcDisplay.value = "";
+}
+
+function calcEquals()
+{
+         if (document.calcForm.calcOperatorMemory.value == '/')
+         {
+                document.calcForm.calcDisplay.value = document.calcForm.calcNumberMemory.value / document.calcForm.calcDisplay.value;
+         }
+         else if (document.calcForm.calcOperatorMemory.value == '*')
+         {
+                document.calcForm.calcDisplay.value = document.calcForm.calcNumberMemory.value * document.calcForm.calcDisplay.value;
+         }
+         else if (document.calcForm.calcOperatorMemory.value == '+')
+         {
+                document.calcForm.calcDisplay.value = (document.calcForm.calcNumberMemory.value - 0) + (document.calcForm.calcDisplay.value - 0);
+         }
+         else if (document.calcForm.calcOperatorMemory.value == '-')
+         {
+                document.calcForm.calcDisplay.value = document.calcForm.calcNumberMemory.value - document.calcForm.calcDisplay.value;
+         } 
+         else {
+                alert ("You must choose an operator.");
+         }
+}
+
+</SCRIPT>
+</HEAD>
+
+<BODY>
+<H3>A JavaScript Calculator</H3>
+<FORM name=calcForm>
+<INPUT type="hidden" name=calcOperatorMemory >
+<INPUT type="hidden" name=calcNumberMemory >
+<TABLE border=1 cellSpacing=1 width=200>
+  <TBODY>
+  <TR>
+    <TD colSpan=4><INPUT name=calcDisplay size=25></TD></TR>
+  <TR>
+    <TD><INPUT name=calc7 onclick=calcNumber(7) type=button value=" 7 "></TD>
+    <TD><INPUT name=calc8 onclick=calcNumber(8) type=button value=" 8 "></TD>
+    <TD><INPUT name=calc9 onclick=calcNumber(9) type=button value=" 9 "></TD>
+    <TD><INPUT name=calcTimes onclick="calcOperator('*')" type=button value=" x "></TD></TR>
+  <TR>
+    <TD><INPUT name=calc4 onclick=calcNumber(4) type=button value=" 4 "></TD>
+    <TD><INPUT name=calc5 onclick=calcNumber(5) type=button value=" 5 "></TD>
+    <TD><INPUT name=calc6 onclick=calcNumber(6) type=button value=" 6 "></TD>
+    <TD><INPUT name=calcDividedby onclick="calcOperator('/')" type=button value=" / "></TD></TR>
+  <TR>
+    <TD><INPUT name=calc1 onclick=calcNumber(1) type=button value=" 1 "></TD>
+    <TD><INPUT name=calc2 onclick=calcNumber(2) type=button value=" 2 "></TD>
+    <TD><INPUT name=calc3 onclick=calcNumber(3) type=button value=" 3 "></TD>
+    <TD><INPUT name=calcMinus onclick="calcOperator('-')" type=button value=" - "></TD></TR>
+  <TR>
+    <TD><INPUT onclick=calcClear() type=button value=" C "></TD>
+    <TD><INPUT name=calc0 onclick=calcNumber(0) type=button value=" 0 "></TD>
+    <TD><INPUT onclick=calcEquals() type=button value=" = "></TD>
+    <TD><INPUT name=calcPlus onclick="calcOperator('+')" type=button value=" + "></TD></TR>
+  </TBODY>
+</TABLE>
+</FORM>
+</BODY>
+</HTML>

@@ -1,0 +1,69 @@
+<HTML>
+<HEAD>
+<SCRIPT type="text/javascript" src="Validacion.js"></SCRIPT>
+</HEAD>
+
+<BODY>
+<FORM name="reg" action="http://localhost:8080/servlet/Registro" method="post">
+  <P align="center"><FONT size="6"><B>REGISTRO CLIENTE</B></FONT></P>
+  <P align="center">
+  <TABLE border="0">
+    <TR>
+      <TD colspan="2"><HR></TD>
+    </TR>
+    <TR>
+      <TD><font size="3">Nombre:</font></TD>
+      <TD><input type="text" name="nombre"></TD>
+    </TR>
+    <TR>
+      <TD><font size="3">Primer Apellido:</font></TD>
+      <TD><input type="text" name="apellido1"></TD>
+    </TR>
+    <TR>
+      <TD><font size="3">Segundo Apellido:</font></TD>
+      <TD><input type="text" name="apellido2"></TD>
+    </TR>
+    <TR>
+      <TD><font size="3">Teléfono de Contacto:</font></TD>
+      <TD><input type="text" name="telefono"></TD>
+    </TR>
+    <TR>
+      <TD><font size="3">E-mail:</font></TD>
+      <TD><input type="text" name="email"></TD>
+    </TR>
+    <TR>
+      <TD><font size="3">Tipo de tarjeta:</font></TD>
+      <TD><SELECT name="tipo_tarjeta">
+            <OPTION VALUE=1> 1. Visa </OPTION>
+            <OPTION VALUE=2> 2. MasterCard </OPTION>
+          </SELECT>
+      </TD>
+    </TR>
+    <TR>
+      <TD><font size="3">Numero de Tarjeta:</font></TD>
+      <TD><input type="text" name="num_tarjeta" SIZE=16 MAXLENGTH=16></TD>
+    </TR>
+    <TR>
+      <TD><font size="3">Nombre de Usuario:</font></TD>
+      <TD><input type="text" name="username"></TD>
+    </TR>
+    <TR>
+      <TD><font size="3">Contraseña:</font></TD>
+      <TD><input type="password" name="password"></TD>
+    </TR>
+    <TR>
+      <TD><font size="3">Verificar Contraseña:</font></TD>
+      <TD><input type="password" name="password2"></TD>
+    </TR>
+    <TR>
+    <TD colspan="2"><HR></TD>
+    </TR>
+    <TR>
+      <TD align="center"><INPUT type="button" value="Enviar" onClick="validate()"></TD>
+      <TD align="center"><INPUT type="reset" value="Borrar"></TD>
+    </TR>
+  </TABLE>
+  </P>  
+</FORM>
+</BODY>
+</HTML>

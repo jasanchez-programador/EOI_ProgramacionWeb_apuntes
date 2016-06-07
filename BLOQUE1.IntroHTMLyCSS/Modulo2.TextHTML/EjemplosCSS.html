@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>ejemplos de css</title>
+	<meta charset="utf-8">
+	<meta name="description" content="Para los buscadores">
+	<meta name="keywords" content="Palabras clave para los buscadores">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	
+	<style type="text/css">
+		a#uno{
+			color: black;
+		}
+		
+		h3 ~ a {
+			color: lightGreen;
+		}
+
+		h3 + a {
+			background-color: darkOrange;
+		}
+
+		h3 ~ a {
+			/*  gana este por ser el ultimo en el fichero */
+			color: lightBlue;
+		}
+
+		.negro{
+			border: 3px solid black;
+		}
+		.rojo{
+			border: 3px solid darkRed;
+		}
+
+		a:last-child:after{
+			/* añade al final del elemento el texto (LINK) si es el utltimo enlace*/
+			Content: "(LINK)";
+		}
+		
+	</style>
+</head>
+
+<body>
+	
+<!-- EN CASO DE CONFLICTO: -->
+		<!-- SE aplicara el estilo con el selector mas preciso -->
+		<!-- 
+			SI LOS SELECTORES SON IGUALES NO IMPORTA ORDEN de las clases, 
+			sino el ultimo estilo definido 
+		-->
+	<div>
+		<h3 class="negro rojo">Primer grupo de enlace</h3>
+		<a href="">enlace1</a>
+		<a href="">enlace2</a>
+		<a href="">enlace3</a>
+	</div>
+	<hr>
+	<div>
+		<h3 class="rojo negro">Segundo grupo de enlace</h3>
+		<a id="uno" href="">enlace1</a>
+		<a href="">enlace2</a>
+		<a style="color: DarkGreen"href="">enlace3</a>
+	</div>
+</body>
+</html>

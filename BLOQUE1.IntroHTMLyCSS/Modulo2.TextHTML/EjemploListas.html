@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>listas</title>
+	<meta charset="utf-8">
+	<meta name="description" content="Para los buscadores">
+	<meta name="keywords" content="Palabras clave para los buscadores">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+<!-- 
+	list-style-type 
+none: sin ningún tipo de elemento en el lateral. Es muy importante, pues se emplea cuando la lista se va a utilizar como un menú o cualquier otro elemento de navegación cuyo aspecto vamos a cambiar para integrar en la página. Queremos la semántica de la etiqueta pero no sus efectos estéticos por defecto.
+
+disc: un círculo negro relleno. Suele ser el valor por defecto.
+
+circle: un círculo hueco.
+
+square: un cuadrado relleno.
+
+decimal: números decimales. Es el valor por defecto para las listas ordenadas.
+
+decimal-leading-zero: idéntico al anterior pero rellenando con ceros a la izquierda para que sea estilo 01, 02, 03...
+
+lower-roman: números romanos en minúsculas.
+
+upper-roman: números romanos en mayúsculas.
+
+lower-alpha / lower-latin: usando letras desde la A a la Z para numerar: a, b, c...
+
+upper-alpha / upper-latin: igual que el anterior pero con letras mayúsculas.
+
+lower-greek: utiliza las letras clásicas griegas para numerar (alfa, beta, gamma...)
+
+-->
+	<ul>
+		<li>menu1
+			<ul>
+				<li>submenu1</li>
+				<li>submenu2</li>
+				<li>submenu3</li>
+			</ul>
+		</li>
+		<li>menu2
+			<ol>
+				<li>submenu1</li>
+				<li>submenu1</li>
+				<li>submenu1</li>
+			</ol>
+		</li>
+		<li>menu3
+			<ol reversed>
+				<li>submenu1</li>
+				<li>submenu1</li>
+				<li>submenu1</li>
+			</ol>
+		</li>
+		<li>menu4
+			<ol start="7">
+				<li>submenu1</li>
+				<li>submenu2</li>
+				<li>submenu3</li>
+			</ol>
+		</li>
+		<li>menu5
+			<ol reversed start="7">
+				<li>submenu1</li>
+				<li>submenu1</li>
+				<li value="10">submenu1</li>
+			</ol>
+		</li>
+	</ul>
+</body>
+</html>

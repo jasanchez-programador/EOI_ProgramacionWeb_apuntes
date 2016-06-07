@@ -1,0 +1,150 @@
+<HTML>
+<HEAD>
+<SCRIPT type="text/javascript">
+
+function getPi() {return Math.PI}
+function getRandom() {return Math.random()}
+function change()
+{
+        var temp = document.calculator.text.value;
+        if (temp.substring(0,1) == "-") 
+        {
+	        document.calculator.list.value = "";
+			document.calculator.text.value = 0 - document.calculator.text.value * 1
+		}
+        if (temp.substring(0,1) != "-") 
+        {
+	        document.calculator.list.value = "";
+			document.calculator.text.value = "-" + temp.substring(0,temp.length)
+		}
+}
+
+function recip(x)
+{
+	document.calculator.text.value = (1/(x))
+}
+
+function raisePower(x)
+{
+	var y = 0
+	y = prompt("What is the exponent?", "")
+	document.calculator.text.value = Math.pow(x,y)
+}
+
+</SCRIPT>
+
+<BODY>
+<TABLE border=1 cellPadding=3 cellSpacing=2>
+  <TBODY>
+  <TR>
+    <FORM name=calculator>
+    <TD bgColor=red colSpan=5>
+      <CENTER><INPUT name=list type=hidden> <INPUT name=text> </CENTER></TD>
+    <TD bgColor=red colSpan=2>
+      <CENTER><INPUT name=backspace onclick="document.calculator.text.value =&#13;&#10;document.calculator.text.value.substring(0,document.calculator.text.value.length*1 -1)" type=button value=" Backspace "> 
+      </CENTER></TD>
+    <TD bgColor=red colSpan=2>
+      <CENTER><INPUT name=clear onclick="document.calculator.text.value=''" type=button value=" Clear "> 
+      </CENTER></TD></TR>
+  <TR>
+    <TD bgColor=blue>
+      <CENTER><INPUT name=but7 onclick="document.calculator.text.value+='7'" type=button value=" 7 "> 
+      </CENTER></TD>
+    <TD bgColor=blue>
+      <CENTER><INPUT name=but8 onclick="document.calculator.text.value+='8'" type=button value=" 8 "> 
+      </CENTER></TD>
+    <TD bgColor=blue>
+      <CENTER><INPUT name=but9 onclick="document.calculator.text.value+='9'" type=button value=" 9 "> 
+      </CENTER></TD>
+    <TD bgColor=yellow>
+      <CENTER><INPUT name=add onclick="document.calculator.text.value+='+'" type=button value=" + "> 
+      </CENTER></TD>
+    <TD bgColor=yellow>
+      <CENTER><INPUT name=subtract onclick="document.calculator.text.value+='-'" type=button value=" - "> 
+      </CENTER></TD>
+    <TD bgColor=lime>
+      <CENTER><INPUT name=reciprocal onclick=recip(document.calculator.text.value) type=button value=" 1/x "> 
+      </CENTER></TD>
+    <TD bgColor=lime>
+      <CENTER><INPUT name=power onclick=raisePower(document.calculator.text.value) type=button value=" x^y "> 
+      </CENTER></TD>
+    <TD bgColor=lime>
+      <CENTER><INPUT name=sin onclick="document.calculator.text.value=&#13;&#10;Math.sin(document.calculator.text.value*3.141592653589793/180)" type=button value=" sin "> 
+      </CENTER></TD></TR>
+  <TR>
+    <TD bgColor=blue>
+      <CENTER><INPUT name=but4 onclick="document.calculator.text.value+='4'" type=button value=" 4 "> 
+      </CENTER></TD>
+    <TD bgColor=blue>
+      <CENTER><INPUT name=but5 onclick="document.calculator.text.value+='5'" type=button value=" 5 "> 
+      </CENTER></TD>
+    <TD bgColor=blue>
+      <CENTER><INPUT name=but6 onclick="document.calculator.text.value+='6'" type=button value=" 6 "> 
+      </CENTER></TD>
+    <TD bgColor=yellow>
+      <CENTER><INPUT name=multiply onclick="document.calculator.text.value+='*'" type=button value=" * "> 
+      </CENTER></TD>
+    <TD bgColor=yellow>
+      <CENTER><INPUT name=divide onclick="document.calculator.text.value+='/'" type=button value=" / "> 
+      </CENTER></TD>
+    <TD bgColor=lime>
+      <CENTER><INPUT name=absolute onclick="document.calculator.text.value=&#13;&#10;Math.abs(document.calculator.text.value)" type=button value=" | x | "> 
+      </CENTER></TD>
+    <TD bgColor=lime>
+      <CENTER><INPUT name=exp onclick="document.calculator.text.value+='E'" type=button value=" exp. "> 
+      </CENTER></TD>
+    <TD bgColor=lime>
+      <CENTER><INPUT name=cos onclick="document.calculator.text.value=&#13;&#10;Math.cos(document.calculator.text.value*3.141592653589793/180)" type=button value=" cos "> 
+      </CENTER></TD></TR>
+  <TR>
+    <TD bgColor=blue>
+      <CENTER><INPUT name=but1 onclick="document.calculator.text.value+='1'" type=button value=" 1 "> 
+      </CENTER></TD>
+    <TD bgColor=blue>
+      <CENTER><INPUT name=but2 onclick="document.calculator.text.value+='2'" type=button value=" 2 "> 
+      </CENTER></TD>
+    <TD bgColor=blue>
+      <CENTER><INPUT name=but3 onclick="document.calculator.text.value+='3'" type=button value=" 3 "> 
+      </CENTER></TD>
+    <TD bgColor=yellow>
+      <CENTER><INPUT name=leftbracket onclick="document.calculator.text.value+='('" type=button value=" ( "> 
+      </CENTER></TD>
+    <TD bgColor=yellow>
+      <CENTER><INPUT name=rightbracket onclick="document.calculator.text.value+=')'" type=button value=" ) "> 
+      </CENTER></TD>
+    <TD bgColor=lime>
+      <CENTER><INPUT name=square onclick="document.calculator.text.value= document.calculator.text.value *&#13;&#10;document.calculator.text.value" type=button value=" x² "> 
+      </CENTER></TD>
+    <TD bgColor=lime>
+      <CENTER><INPUT name=round onclick="document.calculator.text.value=&#13;&#10;Math.round(document.calculator.text.value)" type=button value=" round "> 
+      </CENTER></TD>
+    <TD bgColor=lime>
+      <CENTER><INPUT name=tan onclick="document.calculator.text.value=&#13;&#10;Math.tan(document.calculator.text.value*3.141592653589793/180)" type=button value=" tan "> 
+      </CENTER></TD></TR>
+  <TR>
+    <TD bgColor=blue>
+      <CENTER><INPUT name=but0 onclick="document.calculator.text.value+='0'" type=button value=" 0 "> 
+      </CENTER></TD>
+    <TD bgColor=blue>
+      <CENTER><INPUT name=decimal onclick="document.calculator.text.value+='.'" type=button value="  .  "> 
+      </CENTER></TD>
+    <TD bgColor=blue>
+      <CENTER><INPUT name=sign onclick=change() type=button value=" +|- "> 
+      </CENTER></TD>
+    <TD bgColor=black colSpan=2>
+      <CENTER><INPUT name=equals onclick="document.calculator.text.value=eval(document.calculator.text.value)&#13;&#10;" type=button value="     =     "> 
+      </CENTER></TD>
+    <TD bgColor=lime>
+      <CENTER><INPUT name=sqrt onclick="document.calculator.text.value=&#13;&#10;Math.sqrt(document.calculator.text.value)" type=button value=" x½ "> 
+      </CENTER></TD>
+    <TD bgColor=lime>
+      <CENTER><INPUT name=random onclick="document.calculator.text.value = getRandom()" type=button value=" rand "> 
+      </CENTER></TD>
+    <TD bgColor=lime>
+      <CENTER><INPUT name=pi onclick="document.calculator.text.value+= getPi()" type=button value=" pi "> 
+      </CENTER></TD></TR>
+  </TBODY>
+</TABLE>
+</FORM>
+</BODY>
+</HTML>

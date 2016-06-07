@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Lo veo en la pestaña</title>
+	<meta charset="utf-8">
+	<meta name="description" content="Para los buscadores">
+	<meta name="keywords" content="Palabras clave para los buscadores">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<style type="text/css">
+		p,div,span,table{
+			border: 1px solid darkOrange;
+		}
+	</style>
+</head>
+<body>
+	<p id="inicio">ETIQUETA p</p>
+	<p>&nbsp;&nbsp;llevo 2 espacios en blanco;</p>
+	<p>&nbsp;llevo 1 espacios en blanco;</p>
+	<p>SIN espacios en blanco;</p>
+	<br>
+	<pre>
+ETIQUETA pre
+  llevo 2 espacios en blanco;
+ llevo 1 espacios en blanco;
+ SIN espacios en blanco
+	</pre>
+
+	<p><i>Texto en cursiva con i</i><b> En negrita con b</b></p>
+	<p><em>Texto en cursiva con em</em><strong> En negrita con strong</strong></p>
+	<p><ins>subrrayado con ins</ins><del> tachado con del </del></p>
+
+	<br>
+
+	<q>Cita con q que pone comillas</q><cite>Julio Sánchez</cite>
+	<blockquote>Cita con blockquote que deja un sangrado <cite>Julio Sánchez</cite></blockquote>
+	<br>
+
+<!-- HTML5 no necesita cerrar la etiqueta y el <div> cierra el primer <p> -->
+	<p> fuera del div<div> dentro del div</div> fuera del div</p>
+	<p> fuera del span<span> dentro del div</span> fuera del span</p>
+
+	<!-- 
+<	&lt;	Menor que (Less Than en inglés, de ahí el "lt")
+>	&gt;	Mayor que
+"	&quot;	Comillas dobles
+'	&apos;	Apóstrofe o comilla simple
+&	&amp;	"et" o "ampersand"
+
+á	&aacute;	"a" minúscula acentuada
+Á	&Aacute;	"A" mayúscula acentuada
+ñ	&ntilde;	"ñ"
+€	&euro;	Símbolo del Euro
+	-->
+
+	<hr>
+	<div style="line-height:1.2em;text-align:center">
+		<p> Para controlar </p>
+		<p> La distancia entre lienas </p>
+		<p> <span style="letter-spacing:1.5em;">letras</span> </p>
+		<p> <span style="word-spacing:1.5em;">entre palabras</span> </p>
+	</div>
+
+	<hr >
+	<!-- 
+		vertical align solo tiene sentido entre elementos inline en si mismos!!!
+		como los campos de la fila!!! si tienen una anchura lo suficientemente grande
+	 -->
+	<table height="50px">
+		<tr>
+			<td style="vertical-align:top">top</td><td style="vertical-align:middle">middle</td><td style="vertical-align:bottom">bottom</td>
+		</tr>
+	</table>
+<!-- 
+	ENLACES			ENLACES			ENLACES			ENLACES			ENLACES
+ -->
+	<hr>
+	<a href="#inicio">Subir al inicio de la pagina que tiene id=inicio</a><br>
+	<a href="http://www.google.es" target="_blank">Ir a google en una nueva ventana</a><br>
+	<a href="http://www.google.es" target="_self">Ir a google en la misma ventana ES POR DEFECTO</a><br>
+</body>
+</html>

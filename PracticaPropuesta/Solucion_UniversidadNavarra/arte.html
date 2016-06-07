@@ -1,0 +1,43 @@
+<!-- Informática 3. Solución al ejercicio 2.2 -->
+
+<HTML>
+	<HEAD>
+		<TITLE>Arte</TITLE>
+	</HEAD>
+
+	<BODY BGCOLOR="#8CACD4">
+		<H2 ALIGN="center"><FONT COLOR="white">CATÁLOGO DE ARTE </FONT></H2><BR>
+		<P><B> Introduce los términos de búsqueda: </B><BR>
+		<FORM ACTION="" METHOD="get">
+			<TABLE WIDTH="80%" ALIGN="center">
+				<TR>
+					<TD COLSPAN="2" ALIGN="center"><B>OBRA</B>
+					<TD ALIGN="center"><B>TIPO</B>
+					<TD ALIGN="center"><B>DISPONIBILIDAD</B>
+					<TD ALIGN="center"><B>ESTILO</B>
+				</TR><TR>
+					<TD ALIGN="right">Título
+					<TD><INPUT TYPE="text" NAME="titulo" SIZE="18">
+					<TD><INPUT TYPE="checkbox" NAME="tipo" VALUE="esc"> Escultura
+					<TD><INPUT TYPE="radio" NAME="disp" VALUE="publ"> Museo / Acceso público
+					<TD><SELECT NAME="estilo">
+							<OPTION VALUE="clas">Clásico
+							<OPTION VALUE="abs">Abstracto
+							<OPTION VALUE="surr">Surrealista
+							<OPTION VALUE="otro">Otros
+						</SELECT>
+				</TR><TR>
+					<TD ALIGN="right">Autor
+					<TD><INPUT TYPE="text" NAME="autor" SIZE="12">
+					<TD><INPUT TYPE="checkbox" NAME="tipo" VALUE="arq"> Arquitectura
+					<TD><INPUT TYPE="radio" NAME="disp" VALUE="priv"> Colección privada </TR>
+				<TR><TD></TD><TD></TD>
+					<TD><INPUT TYPE="checkbox" NAME="tipo" VALUE="pint"> Pintura </TR>
+			</TABLE><BR><BR>
+			<TABLE>
+				<TR><TD VALIGN="up"><B> Háganos saber sus sugerencias: </B>
+				<TD><TEXTAREA ROWS="4" COLS="40">Me gustaría indicar que... </TEXTAREA></TABLE>
+			<P ALIGN="center"><INPUT TYPE="submit" VALUE="Buscar">
+		</FORM>		
+	</BODY>
+</HTML>

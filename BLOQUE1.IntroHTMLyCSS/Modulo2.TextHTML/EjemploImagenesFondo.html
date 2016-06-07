@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>ejemplos de css</title>
+	<meta charset="utf-8">
+	<meta name="description" content="Para los buscadores">
+	<meta name="keywords" content="Palabras clave para los buscadores">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	
+	<style type="text/css">
+		* {
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+			-webkit-box-sizing: border-box;
+		}
+		body{
+			width: 100%;
+			padding: 10%;
+			background-color: darkOrange;
+			/* imagen de fondo centrada que tambien deja ver el color de fondo al no ocupar el 100% */
+			background-image: url('../../fotos/luna_de_colores.jpg');
+			background-position: center;
+			background-repeat: no-repeat;
+			/* la imagen fija se mantiene al moverte en vertical por la pagina */
+			background-attachment: fixed;
+		}
+		div,figure{
+			text-align: center;
+			border: 2px solid;
+			width: 100%;
+			/* color de fondo amarillo con transpariencia */
+			background-color: rgba(255,255,0,0.5);
+		}
+		p {
+			/* para que haya scroll vertical!!! */
+			height: 150px;
+			color:white;
+		}
+		img#uno {
+			width: 25%;
+		}
+		img#dos {
+			float: right;
+			padding: 5%;
+		}
+	</style>
+</head>
+
+<body>
+	<div>
+		<p>esto es una prueba</p>
+		<p>esto es una prueba</p>
+		<p>esto es una prueba</p>
+	</div>
+	<br>
+	<hr>
+	<!-- simplemente ver las etiquetas para las imagenes -->
+	<br>
+	<figure>
+		<img id="uno" src="../../fotos/iconos/flower.gif" alt="mi girasol!!!">
+		<figcaption>Mi Girasol!!!<figcaption>
+	</figure>
+	<br>
+	<hr>
+	<!--  la colocacion debe ser flotando los elementos -->
+	<br>
+	<div>
+		<p>kmvlk <img id="dos" src="../../fotos/iconos/flower.gif" alt="mi girasol!!!"> onreiognreoingrengok oinoiwen </p>
+	</div>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>ejemplos de css</title>
+	<meta charset="utf-8">
+	<meta name="description" content="Para los buscadores">
+	<meta name="keywords" content="Palabras clave para los buscadores">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	
+	<style type="text/css">
+		* {
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+			-webkit-box-sizing: border-box;
+		}
+		div,img {
+			border: 2px solid;
+			width: 100px;
+			height: 100px;
+			margin: 10px;
+			text-align: center
+
+		}
+		div {
+			border-radius: 10px;
+			box-shadow: rgba(0,255,0,0.9) -3px -5px 10px inset;
+			text-shadow: rgba(255,0,0,0.9) -3px -5px 10px;
+		}
+		
+		img {
+			/* queda redondo porque el redondeo del borde llega a la mitad del lado*/
+			border-radius: 50px;
+		}
+	</style>
+</head>
+
+<body>
+	<div>
+		<p>esto es una prueba</p>
+	</div>
+	<br>
+	<hr>
+	<br>
+	<img id="foto" src="../../fotos/iconos/flower.gif" alt="mi girasol!!!">
+</body>
+</html>
