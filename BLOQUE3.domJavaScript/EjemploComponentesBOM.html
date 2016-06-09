@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>BOM</title>
+	<meta charset="utf-8">
+	<meta name="description" content="Para los buscadores">
+	<meta name="keywords" content="Palabras clave para los buscadores">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script type="text/javascript">
+		window.onload = function(){
+
+			console.log("Los datos más útiles del objeto window son:");
+			
+			console.log("1.HISORICO --> Podemos usar botones para ir alante o atras!!: ")
+			for (var e in window.history){
+				console.log("\t" + e + ": " + window.history[e]);
+			}
+
+
+			console.log("2.webStorage --> Podemos obtener datos del cliente como S.O. o navegador: ")
+			console.log("\t" + "window.localStorage: " + JSON.stringify(window.localStorage));
+			
+			console.log("3.NAVEGADOR --> Podemos obtener datos del cliente como S.O. o navegador: ")
+			console.log("\t" + "window.navigator.userAgent: " + window.navigator.userAgent);
+
+			console.log("4.geoLocalizacion --> Podemos obtener localizacion del cliente por GPS o IP: ")
+			for (var e in window.navigator.geolocation){
+				console.log("\t" + e + ": " + window.navigator.geolocation[e]);
+			}
+		}
+	</script>
+	
+</head>
+
+<body>
+	<div>
+		<p>Mirar la consola para ver los datos mas importantes del BOM</p>
+		<p>No están todos los que son!!!</p>
+	</div>
+</body>
+</html>

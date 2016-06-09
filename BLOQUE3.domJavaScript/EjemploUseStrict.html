@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Ejemplo de excepciones con una divison</title>
+	<meta charset="utf-8">
+	<meta name="description" content="Para los buscadores">
+	<meta name="keywords" content="Palabras clave para los buscadores">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<style type="text/css">
+		*{
+			box-sizing: border-box;
+			-webkit-box-sizing: border-box;
+		}
+		body{
+			width: 100%;
+		}
+		form {
+			width: 50%;
+			padding-left: 30%;
+		}
+		label{
+			width: 50%;
+			float: left;
+		}
+		input{
+			width: 50%;
+			float: right;
+		}
+	</style>
+	<script type="text/javascript">
+		window.onload = function(){
+			"use strict";
+			function division(n1,n2){
+				
+// si alguno de los parametros esta vacio, hago 1 / 1
+				if ( n1.length < 1 || n2.length < 1) {
+					n1 = 1;
+					n2 = 1;
+				}
+
+				if ( isNaN(n1) || isNaN(n2)){
+					throw new Error("Se deben introducir números");
+				}
+				if ( n2 == 0){
+					throw new Error("No se puede dividir por 0");
+				}
+				
+// modificar los parametros no modifica el array arguments
+				return arguments[0] / arguments[1];
+			}
+
+			var boton = document.getElementById("calcular");
+			boton.onclick = function(){
+// falla con use strict porque no se a declarado antes
+				var n1 = document.getElementById('n1');
+				n2 = document.getElementById('n2');
+				try{ 
+					var r = document.getElementById('r');
+					r.value = division(n1.value,n2.value);
+				}
+				catch(e){
+					alert("ERROR: " + e.code + " -- " + e.message);
+					n1.value="";
+					n2.value="";
+					n1.focus();
+				}
+			}
+
+		}
+	</script>
+</head>
+<body>
+	<form>
+		<fieldset>
+			<legend> Dame numeros a dividir </legend>
+			<label for="n1">Numero1</label>
+			<input type="text" id="n1">
+			<br>
+			<br>
+			<label for="n2">Numero2</label>
+			<input type="text" id="n2">
+			<br>
+			<br>
+			<label>Resultado</label>
+			<input type="text" id="r" disabled>
+			<br>
+			<br>
+			<button id="calcular" type="button">calcular</button>
+
+		</fieldset>
+	</form>
+</body>
+</html>

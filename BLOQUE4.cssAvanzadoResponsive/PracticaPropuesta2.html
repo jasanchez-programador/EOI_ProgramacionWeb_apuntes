@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<title>Tablas</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,height=device-height, initial-scale=1.0">
+	<style type="text/css">
+/* LAS FILAS NO MUESTRAN BORDES!!! */
+	* {
+		box-sizing: border-box;
+		-webkit-box-sizing: border-box;
+	}
+
+	table{
+		border-collapse: collapse;
+	}
+	td{
+		border-bottom: 1px solid lightgrey;
+		white-space: nowrap;
+		padding-right: 50px;
+	}
+	thead td{
+		border-top: 4px solid black;
+	}
+	td:last-of-type, td:nth-child(4){
+		padding-right: 0px;
+	}
+	caption{
+		font-weight: bold;
+		font-size: 3.3em;
+		text-align: left;
+	}
+	</style>
+</head>
+<body>
+	<table>
+		<caption>Lista de tareas</caption>
+		<thead>
+			<tr>
+				<td>Tarea</td><td>Prioridad</td><td>Estado</td><td>Fecha</td><td>¿Hecha?</td>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>Hacer la compra</td><td>Normal</td><td>No comenzada</td><td>30/09/2013</td><td></td>
+			</tr>
+			<tr>
+				<td>llevar coche a revision</td><td>Alta</td><td>Retrasada</td><td>30/09/2013</td><td></td>
+			</tr>
+			<tr>
+				<td>llevar niños al parque</td><td>Normal</td><td>Finalizada</td><td>30/09/2013</td><td><img src="../fotos/iconos/flower.gif"></td>
+			</tr>
+			<tr>
+				<td>Preparar informe de ventas</td><td>Alta</td><td>Comenzada</td><td>30/09/2013</td><td></td>
+			</tr>
+		</tbody>
+	</table>
+</body>
+</html>

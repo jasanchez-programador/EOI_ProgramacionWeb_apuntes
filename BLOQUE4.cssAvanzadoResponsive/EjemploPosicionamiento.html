@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Posicionamiento</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,height=device-height, initial-scale=1.0">
+	<style type="text/css">
+		* {
+			box-sizing: border-box;
+			-webkit-box-sizing: border-box;
+		}
+		body {
+			width: 100%;
+			display: inline-block;
+		}
+		header {
+			width: 100%;
+			float: left;
+			/* SE QUEDA EN LA CABECERA PARA SIEMPRE*/
+			position: fixed;
+			z-index: 1;
+		}
+		img {
+			width: 10%;
+			float: left;
+		}
+		h1 {
+			width: 90%;
+			float: right;
+			text-align: center;
+		}
+		section{
+			width: 100%;
+			padding: 12%;
+			float: left;
+		}
+		article{
+			border: 1px solid black;
+			width: 20em;
+			height: 20em;
+		}
+
+		article#roja{
+			background-color: darkRed;
+		}
+		article#azul{
+			background-color: blue;
+			position: static;/* Por defecto */ 
+			right: 2em;      /* esta propiedad no se lee */
+		}
+		article#negra{
+			background-color: black;
+			position: relative;/* Para que funcionen rigth left top y bottom */ 
+			right: 2em;      /* esta propiedad no se lee */
+		}
+		article#verde{
+			background-color: lightgreen;
+		}
+		article#amarillo{
+			background-color: gold;
+		}
+		article#naranja{
+			background-color: darkOrange;
+		}
+	</style>
+</head>
+<body>
+	<header>
+		<img src="../fotos/iconos/flower.gif">
+		<h1>Esta es mi empresa de girasoles</h1>
+	</header>
+	<section>
+		<article id="roja"></article>
+		<article id="azul"></article>
+		<article id="negra"></article>
+		<article id="verde"></article>
+		<article id="amarillo"></article>
+		<article id="naranja"></article>
+	</section>
+</body>
+</html>

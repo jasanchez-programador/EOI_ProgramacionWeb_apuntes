@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Ejemplo exceciones</title>
+	<meta charset="utf-8">
+	<meta name="description" content="Para los buscadores">
+	<meta name="keywords" content="Palabras clave para los buscadores">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script type="text/javascript">
+		var Nombre = "julio";
+		try {
+			console.log("mi nombre es " + nombre)
+		}
+		catch(e){
+			console.log("ERROR: " + e.code + " -- " + e.name + " -- " + e.message)
+		}
+		finally{
+			console.log("Siempre me ejecuto");
+		}
+		throw new Error("Lanzo yo el error porque quiero finalizar el JS");
+		console.log("ya no me ejecuto porque se lanzo un error");
+	</script>
+</head>
+<body>
+	<p> Mirar en la consola </p>
+</body>
+</html>

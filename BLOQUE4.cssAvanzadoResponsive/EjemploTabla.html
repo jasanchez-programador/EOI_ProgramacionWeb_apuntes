@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<title>Tablas</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,height=device-height, initial-scale=1.0">
+	<style type="text/css">
+/* LAS FILAS NO MUESTRAN BORDES!!! */
+	* {
+		box-sizing: border-box;
+		-webkit-box-sizing: border-box;
+	}
+	body{
+		width: 100%;
+		display: inline-block;
+	}
+	table{
+		width: 33.33333%;
+		float: left;
+	}
+/* Tabla1 -- los bordes de tabla y columnas diferenciados*/
+		table#uno {
+			border: 2px solid darkOrange;
+		}
+
+		table#uno td{
+			border: 2px solid gold;
+			width: 100px;
+			height: 100px;
+		}
+/* Tabla2 -- Ganan los bordes de la tabla*/
+		table#dos {
+			border: 2px solid darkOrange;
+			border-collapse: collapse; 
+		}
+
+		table#dos td{
+			border: 2px solid gold;
+			width: 100px;
+			height: 100px;
+		}
+/* Tabla3 -- los bordes de tabla y columnas diferenciados */
+/* 
+	la posicion del texto se reparte en:
+	arriba-izquierda -- medio-medio -- abajo-derecha
+*/
+		table#tres {
+			border: 2px solid darkOrange;
+		}
+
+		table#tres td{
+			border: 2px solid gold;
+			width: 100px;
+			height: 100px;
+		}
+		table#tres td:nth-child(2n+1){
+			text-align: left;
+			vertical-align: top;
+		}
+		table#tres td:nth-child(2n+2){
+			text-align: center;
+			vertical-align: middle;
+		}
+		table#tres td:nth-child(2n+3){
+			text-align: right;
+			vertical-align: bottom;
+		}
+	</style>
+</head>
+<body>
+	<table id="uno">
+		<thead>
+			<tr>
+				<td colspan="3">CABECERA</td>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>valor11</td><td>valor12</td><td>valor13</td>
+			</tr>
+			<tr>
+				<td>valor21</td><td rowspan="2">valor22</td><td>valor23</td>
+			</tr>
+			<tr>
+				<td>valor31</td><!--<td>valor32</td>--><td>valor32</td>
+			</tr>
+			<tr>
+				<td>valor41</td><td>valor42</td><td>valor43</td>
+			</tr>
+		</tbody>
+	</table>
+<!-- 	<br>
+	<br> -->
+	<table id="dos">
+		<thead>
+			<tr>
+				<td colspan="3">CABECERA</td>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>valor11</td><td>valor12</td><td>valor13</td>
+			</tr>
+			<tr>
+				<td>valor21</td><td rowspan="2">valor22</td><td>valor23</td>
+			</tr>
+			<tr>
+				<td>valor31</td><!--<td>valor32</td>--><td>valor32</td>
+			</tr>
+			<tr>
+				<td>valor41</td><td>valor42</td><td>valor43</td>
+			</tr>
+		</tbody>
+	</table>
+<!-- 	<br>
+	<br> -->
+	<table id="tres">
+		<thead>
+			<tr>
+				<td colspan="3">CABECERA</td>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>valor11</td><td>valor12</td><td>valor13</td>
+			</tr>
+			<tr>
+				<td>valor21</td><td rowspan="2">valor22</td><td>valor23</td>
+			</tr>
+			<tr>
+				<td>valor31</td><!--<td>valor32</td>--><td>valor32</td>
+			</tr>
+			<tr>
+				<td>valor41</td><td>valor42</td><td>valor43</td>
+			</tr>
+		</tbody>
+	</table>
+</body>
+</html>
