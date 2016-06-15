@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Objetos Punto</title>		
+	<script type="text/javascript">
+		window.onload = function () {
+			// PATRON FACTORIA
+			function Punto(posX){
+				// propiedades y metodos publicos
+				this.x = posX || 0;
+				Punto.prototype.moverX = function(pos) {
+					this.x += pos;
+				}
+				Punto.prototype.toString = function() {
+					return "(" + this.x + ")"
+				}
+
+				// propiedad privada de la instancia y sus metodos de acceso
+				var _smsInstancia = "Soy una Instancia del Objeto Punto";
+				this.setSmsInstancia = function(nuevo){
+					_smsInstancia = nuevo;
+				}
+				this.getSmsInstancia = function(){
+					return _smsInstancia;
+				}
+				// propiedad privada del OBJETO y sus metodos de acceso
+				var _smsObjeto = "Soy un objeto Punto";
+				Punto.prototype.setSmsObjeto = function(nuevo){
+					_smsObjeto = nuevo;
+				}
+				Punto.prototype.getSmsObjeto = function(){
+					return _smsObjeto;
+				}
+			}
+
+			// Punto2D con herencia
+			function Punto2D(posX,posY){
+				// Llamamos al constructor del padre
+				Punto.call(this,posX);
+				// definicion de sus propiedades y metodos propios
+				this.y = posY || 0;
+				Punto2D.prototype.moverY = function(pos){
+					this.y += pos;
+				}
+				// Redefinimos la funcion que pinta donde esta el punto
+				Punto2D.prototype.toString = function(){
+					return "(" + this.x + "," + this.y + ")";
+				}
+			}
+			// establecemos el constructor correcto FUERA DEL CONSTRUCTOR
+			Punto2D.prototype = Object.create(Punto.prototype);
+			Punto2D.prototype.constructor = Punto2D;
+
+
+			var p1 = new Punto(5);
+			var p2 = new Punto();
+			p1.moverX(2);
+			p2.moverX(3);
+			p2.setSmsInstancia("soy la instancia p2 del mejor objeto de javascript")
+			p2.setSmsObjeto("soy el mejor Objeto de javascript!!!");
+			console.log(p1.getSmsInstancia());
+			console.log(p1.getSmsObjeto());
+			console.log("p1 esta en: " + p1.toString());
+			console.log("p2 esta en: " + p2.toString());
+
+			var p2d1 = new Punto2D(5,7);
+			p2d1.moverX(2);
+			p2d1.moverY(-2);
+			console.log(p2d1.getSmsInstancia()); 
+			console.log(p2d1.getSmsObjeto()); // rellama a punto y reestablece el sms por defecto
+			console.log("el punto en 2D esta en: " + p2d1.toString());
+
+		}
+
+	</script>
+
+</head>
+<body>
+	Mirar en la consola
+</body>
+</html>

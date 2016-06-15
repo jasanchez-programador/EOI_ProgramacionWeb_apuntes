@@ -1,0 +1,5 @@
+div#info{
+	padding-bottom: 10em;
+	/* los <p> que sobresalen con el scroll*/
+	overflow: scroll;
+}

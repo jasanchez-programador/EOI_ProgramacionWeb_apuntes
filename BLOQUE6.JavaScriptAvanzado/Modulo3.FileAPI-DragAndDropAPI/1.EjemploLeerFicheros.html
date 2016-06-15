@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Acceso a los sistemas de ficehros</title>
+    <!-- CSS de Bootstrap-->
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <!-- Librería jQuery requerida por los plugins de JavaScript -->
+    <script src="http://code.jquery.com/jquery.js"></script>
+    <!-- JavaScript de Bootstrap -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <!-- Nuestros CSS y JS --> 
+    <style type="text/css">
+        div#destino{
+            border: 1px solid darkRed;
+            padding: 5px;
+            text-align: center;
+        }
+    </style>
+    <script type="text/javascript" src="1.EjemploLeerFicheros.js"></script>
+</head>
+<body>
+    <br>
+    <div class="container">
+        <div class="row">
+            <aside class="col-md-4">
+                <input id="texto" type="file" class="btn btn-warning" value="Fichero de Texto" accept="text/*">
+                <br>
+                <input id="img" type="file" class="btn btn-warning" value="imagenes" accept=".jpg,gif,png">
+            </aside>
+            <section class="col-md-8">
+                <div id="destino">
+                </div>
+            </section>
+        </div>
+    </div> 
+</body>
+</html>

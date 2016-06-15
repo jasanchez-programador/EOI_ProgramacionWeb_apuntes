@@ -1,0 +1,22 @@
+        /* 
+Punto de partida para que haya 2 filas, una para cada imagen
+y que queden centradas
+        */
+        div.row{
+            border: 1px dashed darkRed;
+            text-align: center;
+            padding: 1em; /* Para que quede hueco donde soltar si esta vacio */
+        }
+        img{
+            width: 40%;
+            padding: 2em;
+        }
+        /*
+Si arrastrando, paso por encima de un div,  DRAGOVER
+    --> le pongo esa clase para que se vea que podemos soltarlo.
+Si arrastrando, salgo del div, DRAGLEAVE
+    --> le quito esa clase
+        */
+        div.dentro {
+            border: 3px solid orange;
+        }

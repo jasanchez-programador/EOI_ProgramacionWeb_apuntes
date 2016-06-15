@@ -1,0 +1,9 @@
+// Variables con colores
+@color: Orange;
+@colorClaro: lighten(@color, 25%);
+@colorOscuro: darken(@color, 25%);
+// mixins o funciones para establecer el redondeo y tamaño del borde
+.anchoBorde(@enpx: 1px){
+	border: @enpx solid @color;
+	border-radius: @enpx*10;
+}

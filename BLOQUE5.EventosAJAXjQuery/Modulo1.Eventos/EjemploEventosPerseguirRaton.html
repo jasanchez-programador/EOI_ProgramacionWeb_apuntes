@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>BOM</title>
+	<meta charset="utf-8">
+	<meta name="description" content="Para los buscadores">
+	<script type="text/javascript">
+		window.onload = function(){
+			/*
+			Al hacer PINCHAR creo un div donde indica su posicion
+			*/
+			document.onmousedown = function(e){
+				var d = document.createElement('div');
+				d.innerText = "("+e.pageX+","+e.pageY+")";
+				d.setAttribute("class","flota ");
+				d.style.left = e.pageX+"px";
+				d.style.top = e.pageY+"px";
+				document.body.appendChild(d);
+				/*
+				al mover el raton CON EL RATON TODAVIA PINCHADO 
+				se mueve el div actualizando la posicion en su contenido
+				HASTA que se suelta el boton
+				*/
+				document.onmousemove = function(e2){
+					d.innerText = "("+e2.pageX+","+e2.pageY+")";
+					d.style.left = e2.pageX+"px";
+					d.style.top = e2.pageY+"px";
+				}	
+			}
+		}
+		
+	</script>
+	<style>
+		.flota {
+			position: absolute;
+			border: 2px solid darkRed;
+			background-color: orange;	
+			padding: 5px;
+		}
+	</style>	
+</head>
+<body>
+	
+</body>
+</html>

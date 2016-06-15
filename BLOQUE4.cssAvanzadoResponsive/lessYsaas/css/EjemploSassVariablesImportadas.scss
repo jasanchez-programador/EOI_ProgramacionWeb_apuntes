@@ -1,0 +1,33 @@
+// importamos el fichero scss con las variables sass importadas
+@import "coloresBordes";
+
+// el propio css que las usa
+* {
+	margin:0;
+	padding:0;
+	box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+}
+
+body{
+	width: 100%;
+	padding: 5%;
+	display: inline-block;
+	background-color: $colorClaro;
+}
+
+section{
+	padding-left: 33%;
+	width: 34%;
+	float: left;
+}
+
+table {
+	@include anchoBorde();
+}
+
+td {
+	// border: 1px solid $color;
+	@include anchoBorde(2px);
+	color: $colorOscuro;
+}

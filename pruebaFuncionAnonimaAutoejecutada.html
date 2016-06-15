@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>ejemplos de css</title>
+	<meta charset="utf-8">
+	<meta name="description" content="Para los buscadores">
+	<meta name="keywords" content="Palabras clave para los buscadores">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script type="text/javascript">
+		window.onload = function(){
+			(function(){
+				var _sumar = function(n1,n2){
+					return parseInt(n1)+parseInt(n2)
+				}
+				var _restar = function(n1,n2){
+					return parseInt(n1)-parseInt(n2)
+				}
+				// como estamos en la ventana --> window.onload
+				// lo devuelve a la ventana
+				calc = {
+					sumar: _sumar,
+					restar: _restar
+				};
+				return calc;
+
+			})()
+
+			var n1 = document.getElementById('n1');
+			var n2 = document.getElementById('n2');
+			var res = document.getElementById('res');
+			var btnSumar = document.getElementById('s');
+			btnSumar.onclick = function(){
+				res.value = calc.sumar(n1.value,n2.value);
+			}
+			var btnRestar = document.getElementById('r');
+			btnRestar.onclick = function(){
+				res.value = window.calc.restar(n1.value,n2.value);
+			}
+
+		}
+	</script>
+</head>
+	<input id="n1" type="text" placeholder="introduce numero1">
+	<input id="n2" type="text" placeholder="introduce numero2">
+	<input id="s" type="button" value="sumar">
+	<input id="r" type="button" value="restar">
+	<input id="res" type="text" placeholder="resultado" disabled>
+<body>
+
+
+</body>
+</html>

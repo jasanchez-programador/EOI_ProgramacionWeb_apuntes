@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>BOM</title>
+	<meta charset="utf-8">
+	<meta name="description" content="Para los buscadores">
+	<script type="text/javascript">
+
+		function pintar0(){
+			console.log("has pinchado en el boton0")
+		}
+
+		function pintar1(){
+			console.log("has pinchado en el boton1");
+		}
+		function pintar2(){
+			console.log("Soy boton2 y al ponerme los parentesis ME EJECUTO al manejar el evento en la carga de la pagina UNICAMENTE")
+		}
+		window.onload = function(){
+			var botones = document.getElementsByTagName('input');
+			
+			botones[1].onclick = pintar1;
+			botones[2].onclick = pintar2(); // MAL
+			botones[3].onclick = function(){
+				console.log("has pinchado en el boton3");
+			}
+
+		}
+
+		window.onbeforeunload = function(){
+			return "Estas intentando cerrar la pagina!!!"
+			this.style.backgroundColor = red;
+
+
+		}
+	</script>
+	<style>
+		window{
+			background-color: red;
+		}
+	</style>
+	
+</head>
+
+<body>
+	<br>
+	<input type="button" value="boton0" onclick="pintar0();">
+	<br>
+	<input type="button" value="boton1">
+	<br>
+	<input type="button" value="boton2">
+	<br>
+	<input type="button" value="boton3">
+</body>
+</html>

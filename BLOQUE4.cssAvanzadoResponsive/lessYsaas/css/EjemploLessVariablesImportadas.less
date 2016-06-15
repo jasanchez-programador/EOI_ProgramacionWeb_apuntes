@@ -1,0 +1,32 @@
+//importamos el fichero less con las definiciones
+@import (reference) "coloresBordes";
+
+// el propio css que usa las definiciones anteriores
+* {
+	margin:0;
+	padding:0;
+	box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+}
+
+body{
+	width: 100%;
+	padding: 5%;
+	display: inline-block;
+	background-color: @colorClaro;
+}
+
+section{
+	padding-left: 33%;
+	width: 34%;
+	float: left;
+}
+
+table {
+	.anchoBorde();
+}
+
+td {
+	.anchoBorde(3px);
+	color: @colorOscuro;
+}
