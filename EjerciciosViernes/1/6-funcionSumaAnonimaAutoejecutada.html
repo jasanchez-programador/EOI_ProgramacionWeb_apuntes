@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="description" content="Para los buscadores">
+	<meta name="keywords" content="Palabras clave para los buscadores">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script type="text/javascript">
+		window.onload = function(){
+			(function(){
+				var _suma = function(n1,n2){
+					return parseInt(n1)+parseInt(n2)
+				}
+
+				// como estamos en la ventana --> window.onload
+				// lo devuelve a la ventana
+				calc = {
+					suma: _suma,
+				};
+				return calc;
+			})()
+
+			var n1 = 0;
+			var n2 = 0;
+			n1 = calc.suma(n1,1);
+			n2 = calc.suma(n2,2);
+			var suma = calc.suma(n1,n2);
+			console.log("el resultado es: " + suma);
+			
+
+		}
+	</script>
+</head>
+	<p>Mirar en consola</p>
+<body>
+
+
+</body>
+</html>

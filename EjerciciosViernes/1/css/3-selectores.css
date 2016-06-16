@@ -1,0 +1,64 @@
+/* inicio colocacion */
+* {
+	margin: 0;
+	padding: 0;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+	border: 1px solid DarkOrange;
+}
+
+body {
+	display: inline-block;
+	width: 100%;
+}
+
+header {
+	text-align: center;
+}
+
+section,aside {
+	float: left;
+	width: 33.33%;
+}
+/* fin colocacion */
+/* inicio selectores */
+/* selectores de clase */
+p:nth-of-type(2) {
+	text-align: center;
+}
+p:nth-of-type(3){
+	text-align: right;
+	font-size: 1.25rem;
+}
+
+/* selectores de id */
+body > section:nth-child(2) > article:nth-child(even) {
+	background-color: LightBlue;
+}
+body > section:nth-child(3) > article:nth-child(even){
+	background-color: PaleGreen;
+}
+article p:first-child{
+	color: red;
+}
+section > p{
+	text-align: center;
+	background-color: tan;
+}
+
+p:nth-child(2){
+	color: goldenrod;
+}
+
+a:link {
+	color: maroon;
+}
+
+a:visited {
+	color: olive;
+}
+
+aside > a {
+	display: block;
+}

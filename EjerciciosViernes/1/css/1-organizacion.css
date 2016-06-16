@@ -1,0 +1,121 @@
+/* Selector global. todos los marcadores */
+
+/*
+
+!!!CUIDADO
+los % usan decimales y en ocasiones conlleva 
+que no llege al 100% de pixeles del padre
+
+*/
+
+*{ 
+	margin: 0%;
+	padding: 0%;
+	/* padding y border se aplicara dentro de las medidas 
+	width y height
+	asi dos elementos con mismo ancho y alto pero diferentes
+	separaciones seran del mismo tamaño
+	 */
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+	/* -o  -->  opera
+	   -ms -->  ie */
+}
+/* colocacion adaptativa */
+body {
+	/* distribucion en cajas
+	body ocupa el 100% del dispositivo 
+	*/
+	background: GhostWhite;
+	display: inline-block;
+	width: 100%;
+	padding-left: 3%;
+	padding-right: 3%;
+
+}
+
+/* borde para identificar elementos */ 
+header,nav,section,article,aside,footer,table,caption,td {
+	border: 2px solid DarkOrange;
+	text-align: center;
+}
+
+header,nav,table{
+	/* 	ocupan el 100% del dispositivo, una debajo de otra */
+	width: 100.000%;
+}
+img{
+	width: 20%;
+}
+figcaption{
+	padding: 1%;
+}
+table {
+	border-collapse: collapse;
+}
+
+/* Que su informacion este centrada en la pantalla */
+header,nav,footer,caption,td,article{
+}
+/* como situo a los elementos de la lista */
+li {
+	text-align: inherit;
+	/*display: inline-block; /* unos al lado de otros, sobreescribe los siguentes */
+	list-style: square; /* delante un cuadrado */
+	list-style-position: inside; /* sino se dibuja fuera del border */
+}
+
+/* 	entre la seccion y el aside me aseguro que no superen el 100%
+	en la estructura de cajas la seccion a la izquierda y el aside a la derecha	
+*/
+section {
+	width: 34%;
+	float: left;
+	/* Por si alguien dice que el borde de aside no llega al final */
+	/*height: 127px;*/
+	
+}
+aside {
+	width: 32%;
+	float: left;
+	/* Por si alguien dice que el borde de aside no llega al final */
+	/*height: 127px;*/
+	
+}
+section > article {
+/*	hay 3 articulos dentro de la seccion
+	su ancho esta limitado al section
+	entre los 3 me aseguro que no superen el 100% del section
+	se van colocando en orden hacia la izq. */
+	width: 33%;
+	float: left;
+}
+section > article:nth-of-type(2){
+	width: 34%;
+	float: left;
+}
+
+ footer{
+/* evitar que el footer suba y descoloque la composicion de cajas*/
+	clear: both;
+}
+
+/* que las filas impares tengan fondo rojo */
+tr:nth-child(2n){
+	background-color: moccasin;
+}
+
+:visited{
+	color: Green;
+}
+/* que los parrafos con clase h hijos de h3 de las 2 sections esten centrados */
+.h {
+	text-align: center;
+}
+
+/* que el parrafo con id oro del footer tenga fondo oro */
+#oro{
+	background-color: gold;
+}
+
