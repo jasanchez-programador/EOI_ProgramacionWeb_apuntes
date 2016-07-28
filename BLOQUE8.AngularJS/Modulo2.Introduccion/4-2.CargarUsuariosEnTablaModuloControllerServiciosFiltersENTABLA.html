@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en" data-ng-app="tablaUsuariosModule" ng-controller="datosTablaCtrl">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Usuarios de placeHolder en Tabla </title>
+    <!-- CSS de Bootstrap-->
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <!-- Librería jQuery requerida por los plugins de JavaScript -->
+    <script src="http://code.jquery.com/jquery.js"></script>
+    <!-- JavaScript de Bootstrap -->
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <!-- JavaScript con TODO Angular1 -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></script>
+    <!-- // <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.9/angular.min.js"></script> -->
+    <script>
+        // MODULO
+        var tablaUsuariosModule = angular.module('tablaUsuariosModule', []);
+
+        // CONTROLLER datosTablaCtrl para el MODULO
+        // Como dependencias inyectadas usamos:
+        //  --> $http ==> servicio AJAX
+        //  --> $log  ==> servicio que sustituye al console
+        tablaUsuariosModule.controller('datosTablaCtrl', function ($scope,$http,$log) {
+            // LLAMADA AJAX para obtener los datos
+            // dejamos el array con todos los usuarios en la variable del $scope:
+            // $scope.usuarios
+            $http.get('http://jsonplaceholder.typicode.com/posts')
+              .success(function(listaUsuarios){
+                  // llegan los datos como un array de JSON
+                  // como valor en la clave data
+                  $scope.usuarios = listaUsuarios;
+                  $log.log("USUARIOS: " + JSON.stringify(listaUsuarios))
+                })
+              .error(function(error) {
+                  console.log("errorr");
+                })
+        })
+    </script>
+
+  </head>
+  <body>
+    <div class="container">
+      <br>
+      <div class="row">
+        <table class="table table-striped table-bordered">
+          <thead>
+            <tr>
+              <td ng-repeat="(clave,valor) in usuarios[0]">
+                {{ clave | uppercase }}
+              </td>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- 
+            para cada usuario del array:
+            $scope.usuarios
+             -->
+            <!-- 
+              FILTRO para ORDENAR la salida por el valor del title DESCENDENTE
+              orderBy solo se puede hacer sobre arrays
+              :true  ==> DESCENDENTE
+              :false ==> ASCENDENTE
+             -->
+            <tr ng-repeat="usuario in usuarios | orderBy:'title':true">
+              <td ng-repeat="(clave,valor) in usuario">
+                {{ valor }}
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </body>
+</html>

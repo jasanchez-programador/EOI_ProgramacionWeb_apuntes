@@ -1,0 +1,37 @@
+﻿[
+	{
+	"id": "1",
+	"Nombre": "Alberto Contador",
+	"Equipo": "Tinkoff",
+	"Pais"	: "España",
+	"img"	: "Fotos/Contador.png"
+	},
+	{
+	"id": "2",
+	"Nombre": "Roman Kreuziger",
+	"Equipo": "Tinkoff",
+	"Pais"	: "Rep. Checa",
+	"img"	: "Fotos/Kreuziger.png"	
+	},
+	{
+	"id": "3",
+	"Nombre": "Vincenzo Nibali",
+	"Equipo": "Astana Pro Team",
+	"Pais"	: "Italia",
+	"img"	: "Fotos/Nibali.png"
+	},
+	{
+	"id": "4",
+	"Nombre": "Alejandro Valverde",
+	"Equipo": "Movistar",
+	"Pais"	: "España",
+	"img"	: "Fotos/Valverde.png"
+	},
+	{
+	"id": "5",
+	"Nombre": "Nairo Quintana",
+	"Equipo": "Movistar",
+	"Pais"	: "Colombia",
+	"img"	: "Fotos/Quintana.png"
+	}
+]

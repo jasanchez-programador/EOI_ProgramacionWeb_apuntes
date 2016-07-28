@@ -2,7 +2,7 @@
 // necesita tener los elementos del DOM seleccionados
 // acceso a la vista para modificarla 
 
-define(['elementosDOM','vista','controlador'],function(eDom,v,c){
+define(['elementosDOM','controlador','vista'],function(eDom,c,v){
 	var _init = function (){
 		eDom.btnCrearPunto.on('click',c.btnClickCrearPunto);
 		eDom.inputMoverX.on('blur',v.activarBotonMover);

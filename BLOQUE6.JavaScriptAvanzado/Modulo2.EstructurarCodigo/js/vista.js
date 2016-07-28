@@ -1,4 +1,6 @@
-// Modulo encargado de modificar el DOM
+// Modulo encargado de 
+// CONSULTAR/MODIFICAR
+// ELEMENTOS Y PROPIEDADES del DOM
 
 define(['elementosDOM','utilidades'],function(eDom,utils){
 

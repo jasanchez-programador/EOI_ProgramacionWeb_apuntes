@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Plantilla Bootstrap</title>
+    <!-- CSS de Bootstrap-->
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <!-- Librería jQuery requerida por los plugins de JavaScript -->
+    <script src="http://code.jquery.com/jquery.js"></script>
+    <!-- JavaScript de Bootstrap -->
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="1.EjemploVideoControles.js"></script>
+  <style type="text/css">
+    body {
+      background-image: url(https://25.media.tumblr.com/tumblr_m6qyybDaS11qzw1qyo1_500.gif);
+      background-position: center;
+      /* la imagen fija se mantiene al moverte en vertical por la pagina */
+      background-size: cover; 
+    }
+  </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <br>
+      <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+          <video id="v" controls="controls" width="500px">
+            <source src="http://techslides.com/demos/sample-videos/small.mp4" type="video/mp4">
+          </video>  
+        </div>
+      </div>
+      <div class="row">
+      	<div class="col-md-6 col-md-offset-4">
+          <div class="btn-group">
+            <button id="play" class="btn btn-success">
+              <span class="glyphicon glyphicon-play"></span>
+            </button>
+            <button id="pause" class="btn btn-success">
+              <span class="glyphicon glyphicon-pause"></span>
+            </button>
+            <button id="subirVel" class="btn btn-success">
+              <span class="glyphicon glyphicon-step-backward"></span>
+            </button>
+            <button id="bajarVel" class="btn btn-success">
+              <span class="glyphicon glyphicon-step-forward"></span>
+            </button>
+            <button id="subirVol" class="btn btn-success">
+              <span class="glyphicon glyphicon-volume-up"></span>
+            </button>
+            <button id="bajarVol" class="btn btn-success">
+              <span class="glyphicon glyphicon-volume-down"></span>
+            </button>
+            <button id="mute" class="btn btn-success">
+              <span class="glyphicon glyphicon-volume-off"></span>
+            </button>
+            <button id="full" class="btn btn-success">
+              <span class="glyphicon glyphicon-fullscreen"></span>
+            </button>
+          </div>
+     	  </div>
+      </div>
+    </div>
+  </body>
+</html>

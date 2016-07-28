@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>AJAX javascript</title>
+	<script type="text/javascript">
+
+		// FUNCION GLOBAL para atender la respuesta del servidor
+		// la respuesta viene en objeto JSON con clave SEARCH
+		// el valor es un array, donde en cada posicion esta otro objeto JSON
+		// cada objeto json tiene los datos de las peliculas
+		function losDatos(resp){
+			// me quedo con el array de objetos JSON
+			// a traves de la propiedad search que me devuleve el servidor
+			var arrayRespuesta = resp.Search;
+			console.log(arrayRespuesta);
+			// Añadimos la tabla al div
+			var lugarResp = document.getElementById('stage');
+			var tabla = document.createElement("table");
+			tabla.style.borderCollapse = "collapse"; 
+			lugarResp.appendChild(tabla);
+			var cabTabla = document.createElement("thead");
+			tabla.appendChild(cabTabla);
+						
+			// recorremos solo el primer elemento para quedarnos con las claves y poder pintar la cabecera
+			for ( var clave in arrayRespuesta[0] ) {
+				var tdCab = document.createElement("td"); 
+				tdCab.style.border = "2px solid darkRed";
+				tdCab.innerText = clave;
+				cabTabla.appendChild(tdCab);
+			}
+
+			// Recorremos todo el array compuesto de objetos JSON
+			// para pintar el valor de cada clave de cada objeto JSON 
+			// en una fila nueva de la tabla !!!
+			for ( var jason in arrayRespuesta ){
+				var fila = document.createElement("tr");
+				tabla.appendChild(fila);
+				for ( k in arrayRespuesta[jason] ){
+					var tdFila = document.createElement("td");
+					tdFila.style.border = "2px solid darkOrange";
+					fila.appendChild(tdFila);
+					if ( k == "Poster"){
+						var i = document.createElement("img");
+						i.src = arrayRespuesta[jason][k];
+						console.log(i)
+						tdFila.appendChild(i);
+					} 
+					else {
+						tdFila.innerText = arrayRespuesta[jason][k];
+						
+					}
+					
+				}
+			}		
+		}
+	</script>
+	<script type="text/javascript">
+		window.onload = function () {
+			var elP = document.getElementsByTagName('p')[0];
+			elP.onclick = function() {
+				console.log("click");
+				// no usamos atributo XMLHttpRequest para evitar los problemas de CORS
+				// creamos etiqueta <script> para pedir los datos al servidor que los
+				// devuelve en la funcion losDatos()
+
+				// losDatos:
+				//		--> Es la funcion que devuelve el servidor!!!!
+				//		--> Hay que declararla GLOBALMENTE, antes de que esto se ejecute para
+				//			exista al llamarla 
+				var head = document.getElementsByTagName("head")[0];
+				queryScript = document.createElement("script");
+				queryScript.src = "http://www.omdbapi.com/?s=matrix&callback=losDatos";
+				head.appendChild(queryScript);
+			}
+		}
+
+	</script>
+<!--	<script type="text/javascript" src="http://www.omdbapi.com/?s=matrix&callback=losDatos"></script> -->
+
+</head>
+<body>
+	<p> Haz click en MI para cargar la página con una peticion AJAX</p>
+	<div id="stage" style="background:lightgreen">
+		STAGE
+	</div>
+</body>
+</html>

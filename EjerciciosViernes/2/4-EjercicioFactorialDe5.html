@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script type="text/javascript">
+		window.onload = function(){
+			(function(){
+				var _factorialSINBUCLE = function(n1){
+					if ( n1 == 1){
+						return 1;
+					}
+					else {
+						return parseInt(n1) * _factorialSINBUCLE(n1-1)
+					}
+				}
+				var _factorialCONBUCLE = function(n1){
+					var res = 1;
+					for ( var i=2;i<=n1;i++ ){
+						res *= i;
+					}
+					return res;
+				}
+
+				// como estamos en la ventana --> window.onload
+				// lo devuelve a la ventana
+				calc = {
+					factorialSINBUCLE: _factorialSINBUCLE,
+					factorialCONBUCLE: _factorialCONBUCLE
+				};
+				return calc;
+			})()
+			console.log("el factorial de 5 SIN BUCLE es : "+calc.factorialSINBUCLE(5));
+			console.log("el factorial de 5 CON BUCLE es : "+calc.factorialCONBUCLE(5));
+		}
+
+	</script>
+</head>
+	<p>Mirar en consola</p>
+<body>
+
+
+</body>
+</html>

@@ -1,0 +1,34 @@
+<nav class="navbar navbar-inverse navbar-static-top">
+  <br>
+  <div class="container-fluid">
+    <h2 ng-big-scale class="text-danger col-lg-offset-5 col-md-offset-4 col-sm-offset-4 col-xs-offset-3">Mi barra de navegacion</h2>
+    <!-- NUEVO Boton oculto que collapsed/AGRUPA al que tenga como id="a-quien-agrupo" 
+    se mantiene fijo arriba en la ventana -->
+    <button type="button" class="pull-left navbar-toggle collapsed" 
+            data-toggle="collapse" data-target="#a-quien-agrupo">
+      <span class="sr-only">Toggle navigation</span>
+      <!-- 3 rayas simulan la hamburguesa -->
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+    
+      <!-- barra de navegacion en formato BUTONES 
+        color de texto naranja color de fondo azul claro-->
+      <div class="row collapse navbar-collapse" id="a-quien-agrupo">
+        <ul class="nav nav-pills col-lg-offset-5 col-md-offset-4 col-sm-offset-4 col-xs-offset-3">
+          <li><a href="#/" class="btn btn-danger">{{links.m1}}</a></li>
+          <li class="dropdown">
+            <a class="btn btn-danger dropdown-toggle" 
+              data-toggle="dropdown">{{links.m2}}<span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <!-- color de texto zul claro color de fondo naranja -->
+              <li><a href="#/Submenu1" class="bg-danger">{{links.m3}}</a></li>
+              <li><a href="#/Submenu2" class="bg-danger">{{links.m4}}</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <br>
+  </nav>

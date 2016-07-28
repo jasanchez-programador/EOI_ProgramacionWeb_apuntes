@@ -10,24 +10,22 @@
     <script src="http://code.jquery.com/jquery.js"></script>
     <!-- JavaScript de Bootstrap -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-    <!-- Nuestros CSS y JS --> 
-    <style type="text/css">
-        div#destino{
-            border: 1px solid darkRed;
-            padding: 5px;
-            text-align: center;
-        }
-    </style>
-    <script type="text/javascript" src="1.EjemploLeerFicheros.js"></script>
+    <!-- Nuestros CSS y JS -->
+    <link rel="stylesheet" href="css/1.EjemploLeerFicheros.css">
+    <script type="text/javascript" src="js/1.EjemploLeerFicheros.js"></script>
 </head>
 <body>
     <br>
     <div class="container">
         <div class="row">
             <aside class="col-md-4">
+                <label>Selcciona Fichero de Texto</label>
                 <input id="texto" type="file" class="btn btn-warning" value="Fichero de Texto" accept="text/*">
                 <br>
+                <label>Selcciona Fichero de Imagen</label>
                 <input id="img" type="file" class="btn btn-warning" value="imagenes" accept=".jpg,gif,png">
+                <br>
+                <label>Tamaño del último fichero leido: <span id="tam">0</span></label>
             </aside>
             <section class="col-md-8">
                 <div id="destino">

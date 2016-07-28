@@ -1,0 +1,115 @@
+	<!-- 
+	Nombre: solo letras ++ obligatorio
+	Contraseña: 1Mayus_1Minus_1num + minimo 8 caracteres + obligatorio
+
+	Edad: entre 1 y 110 + obligatorio
+	Email: con @ y dominio .esp
+
+	sexo: obligatorio
+	
+	telefono fijo: 9 digitos empezando por 8 o 9 ++ NO OBLIGATORIO
+	telefono movil: 9 digitos empezando por 6 o 7 ++ NO OBLIGATORIO
+	
+	comentario: nada
+	-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>plantilla Bootstrap</title>
+    <!-- CSS de Bootstrap-->
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <!-- Librería jQuery requerida por los plugins de JavaScript -->
+    <script src="http://code.jquery.com/jquery.js"></script>
+    <!-- JavaScript de Bootstrap -->
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" href="css/6-EJERCICIOValidacionFormulario.css">
+	<script src="js/6-EJERCICIOValidacionFormulario.js"></script>
+    
+
+  </head>
+  <body>
+    <div class="container">
+      <br>
+      <div class="row"> 
+      
+		<form action="#alservidor" method="get" class="form-horizontal">
+			<fieldset>
+				<legend>Datos conexi&oacute;n</legend>
+				<div class="form-group">
+					<label class="col-md-2" id="text">Nombre: </label>
+					<div class="col-md-3">
+						<input type="text" pattern="^[a-zA-Z].*" maxlength='10' required='required' autofocus class="form-control">
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-md-2" id="lpassword">Contrase&ntilde;a: </label>
+					<div class="col-md-3">
+						<input class="form-control" id="pass" type="password" pattern=".{8}.*" required='required'>
+					</div>
+				</div>
+				<br>
+			</fieldset>
+			<fieldset>
+				<br>
+				<legend>Datos personales</legend>
+				<div class="form-group">
+					<label class="col-md-2" class="col-md-2" id="number">Edad: </label>
+					<div class="col-md-3">
+						<input class="form-control" type="number" min="1" max="110" required='required'>
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-md-2" id="date">Fecha de Nacimiento: </label>
+					<div class="col-md-3">
+						<input class="form-control" type="date" required='required'>
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-md-2" id="email">Email: </label>
+					<div class="col-md-3">
+						<input class="form-control" type="email" pattern=".*@.*\.esp$" required='required'>
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-md-2" id="radio">Sexo: </label>
+					<div class="col-md-3">
+						<label class="radio-inline">
+							<input type="radio" value="hombre" required="required">hombre
+						</label>
+						<label class="radio-inline">
+							<input type="radio" value="mujer" required="required">mujer
+						</label>
+					</div> 
+				</div>
+				<div class="form-group">
+					<label class="col-md-2" id="telfijo">Tel&eacute;fono fijo: </label>
+					<div class="col-md-3">
+						<input class="form-control" type="tel" pattern="^[89]\d{8}$">
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-md-2" id="telmovil">Tel&eacute;fono movil: </label>
+					<div class="col-md-3">
+						<input class="form-control" type="tel" pattern="^[67]\d{8}$">
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-md-2" id="textarea">Comentarios: </label>
+					<div class="col-md-3">
+						<textarea class="form-control" col="20" rows="3"></textarea>
+					</div>
+				</div>
+			</fieldset>
+			<div>
+				<input class="btn btn-primary" type="submit" id="enviar" value="Enviar">
+				<input class="btn btn-info" type="reset" id="limpiar" value="limpiar formulario">
+			</div>
+		</form>
+
+		</div>
+    </div>
+
+	</body>
+</html>

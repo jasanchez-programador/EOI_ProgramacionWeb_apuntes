@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Elige fotos de SF y colocalas</title>
+    <!-- CSS de Bootstrap 
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    -->
+    <link rel="stylesheet" href="../../css/libs/bootstrap.min.css">
+    <!-- Librería jQuery requerida por los plugins de JavaScript 
+    <script src="http://code.jquery.com/jquery.js"></script>
+    -->
+    <script src="../../js/libs/jquery-2.1.4.min.js"></script>
+    <!-- JavaScript de Bootstrap 
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    -->
+    <script src="../../js/libs/bootstrap.min.js"></script>
+    <!-- Nuestros CSS y JS -->
+    <link rel="stylesheet" href="css/3.EJERCICIOleerImagen_Colocarla.css">
+    <script type="text/javascript" src="js/3.EJERCICIOleerImagen_Colocarla.js"></script>
+</head>
+<body>
+    <br>
+    <div class="container">
+        <div class="row">
+            <aside class="col-md-4">
+                <label>Selcciona Imagenes</label>
+                <input id="img" type="file" class="btn btn-warning" value="imagenes" accept=".jpg,gif,png" multiple="multiple">
+                <br>
+                <label>Tamaño del último fichero leido: <span id="tam">0</span></label>
+            </aside>
+            <article class="col-md-8">
+                <div id="destino">
+                </div>
+            </article>
+        </div>
+        <br>
+        <section id="dd1" class="row soltable">
+            <!-- <img id="img1" draggable src="../../fotos/cielo_rosaceo.jpg"> -->
+        </section>
+        <hr>
+        <section id="dd2" class="row soltable">
+            <!-- <img id="img2" draggable src="../../fotos/luna_de_colores.jpg"> -->
+        </section>
+    </div> 
+</body>
+</html>

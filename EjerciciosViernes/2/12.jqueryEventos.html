@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>jquery Modificar DOM</title>
+    <!-- Librería jQuery requerida por los plugins de JavaScript -->
+    <script src="http://code.jquery.com/jquery.js"></script>
+
+    <script>
+      $(document).ready(function(){
+        // VER LA JERARQUIA DE <ul> POR CONSOLA
+        // al pulsar el boton, pongo texto de <a> de color Gris
+        $('input#boton1').on("mousedown",function(){
+          $('a#enlace1').css({'color':'DarkGrey'});
+        });
+        // El texto de <a> lo pongo rojo tanto si se lanza
+        // click como al dejar de pinchar (mouseup)
+        $('input#boton1').on("click mouseup",function(){
+          $('a#enlace1').css({'color':'Red'});
+        });
+        // al pulsar 2 veces, pongo texto de <a> de color verde
+        $('input#boton1').on("dblclick",function(){
+          $('a#enlace1').css({'color':'Green'});
+        });
+        // Simular hover:
+        // al poner el raton encima de <a> ampliamos letra del texto
+        // al salir el raton de encima de <a> reducimos letra del texto
+        $('a#enlace1').on({
+          'mouseenter':function(){
+            $(this).css({
+              'color':$(this).css('color'),
+              'font-size': '1.5em'
+            });
+          }
+        ,
+          'mouseleave':function(){
+            $(this).css({
+              'color':$(this).css('color'),
+              'font-size': '1em'
+            });
+          }
+        });
+        // al coger foco añadir clase foco
+        $('a').on('focus',function(){
+          $(this).addClass('foco');
+        });
+        // al perder el foco quitar la clase foco
+        $('a').on('blur',function(){
+          $(this).removeClass('foco');
+        })
+        $('a').on('click',function(e){
+          e.preventDefault();
+        })
+
+      });
+    </script>
+
+  </head>
+  <body>
+    <input type='button' value='boton1' id='boton1'>
+    <a id='enlace1' href="http://www.google.es">Los eventos sobre el boton y sobre mi, cambian mi aspecto</a>
+<!--    <br> <br>
+    <label>Contraseña: </label> <br>
+    <input type="password" id="cifrada">
+    <br> <br>
+    <label>Voy viendo tu contraseña</label>
+    <br>
+    <input type="text" id="plano" disabled>
+    <br><br>
+    <a id="enlace2" href="http://www.google.es">google</a>
+    -->
+  </body>
+</html>

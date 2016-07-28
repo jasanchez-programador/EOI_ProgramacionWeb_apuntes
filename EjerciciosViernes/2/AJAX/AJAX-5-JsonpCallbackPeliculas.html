@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>AJAX load</title>		
+	<script type="text/javascript" src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+		<script type="text/javascript">
+
+		// FUNCION GLOBAL para atender la respuesta del servidor
+		// la respuesta viene en objeto JSON con clave SEARCH
+		// el valor es un array, donde en cada posicion esta otro objeto JSON
+		// cada objeto json tiene los datos de las peliculas
+		(function(){
+			this.losDatos = function(resp){
+				// me quedo con el array de objetos JSON
+				// a traves de la propiedad search que me devuleve el servidor
+				var arrayRespuesta = resp.Search;
+				console.log("ARRAY "+arrayRespuesta);
+				// Añadimos la tabla al div
+				$('#stage').append(
+					$("<table>").append(
+						$("<thead>")
+						).css({"borderCollapse":"collapse"})
+					)
+				console.log("stage: " +$('#stage').html())
+							
+				// recorremos solo el primer elemento para quedarnos con las claves y poder pintar la cabecera
+				for ( var clave in arrayRespuesta[0] ) {
+					console.log("CABECERA "+clave);
+					$('thead').append(
+						$("<td>").text(clave).css({"border":"2px solid darkRed"})
+						)
+				}
+				// Recorremos todo el array compuesto de objetos JSON
+				// para pintar el valor de cada clave de cada objeto JSON 
+				// en una fila nueva de la tabla !!!
+				for ( var jason in arrayRespuesta ){
+					var fila = $('<tr>');
+					$('table').append(fila);
+					for ( k in arrayRespuesta[jason] ){
+						var tdFila = $("<td>").css({"border":"2px solid darkOrange"})
+						fila.append(tdFila);
+						if ( k == "Poster"){
+							tdFila.append(
+								$("<img>").attr({"src":arrayRespuesta[jason][k]})
+								)
+						} 
+						else {
+							tdFila.text(arrayRespuesta[jason][k]);						
+						}
+					}
+				}		
+			}
+		})()
+	</script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$('input#boton').on('click', function(){
+				//repuesta en html 
+				// que recive como parametro la funcion en jason
+				// que reemplaza al html del div con id stage
+				$.ajax({
+			        type: 'GET',
+			        url: 'http://www.omdbapi.com/?s=matrix&callback=?',
+			        dataType: 'jsonp',
+			        // el servidor devuelve el JSON con una funcion (CALLBACK)
+			        // esa funcion (CALLBACK) es la que recoge los datos y opera con ellos
+			        jsonpCallback: 'losDatos',
+			        crossDomain: true
+			    })
+			})
+		});
+	</script>
+
+</head>
+<body>
+	<p> Haz click en boton para cargar la página con una peticion AJAX</p>
+	<div id="stage" style="background:lightgreen">
+		STAGE
+	</div>
+	<br>
+	<input type="button" id="boton" value="boton">
+</body>
+</html>

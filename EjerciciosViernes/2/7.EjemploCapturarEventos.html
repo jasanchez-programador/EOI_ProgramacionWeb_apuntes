@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Capturar Eventos</title>
+    <!-- CSS de Bootstrap-->
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <!-- Librería jQuery requerida por los plugins de JavaScript -->
+    <script src="http://code.jquery.com/jquery.js"></script>
+    <!-- JavaScript de Bootstrap -->
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script>
+      function pulsar1(){
+        console.log("Soy pulsar1");
+      }
+      function pulsar2(){
+        console.log("Soy pulsar2");
+      }
+      window.onload = function(){
+        var boton = document.getElementsByTagName('input');
+
+        boton[2].onclick = pulsar1;
+        boton[3].onclick = function(){
+          console.log("Soy funcion anónima");
+        }
+        // MAL porque se ejecuta al obtener el click del boton y no al pulsar
+        boton[4].onclick = pulsar1();
+        boton[5].addEventListener('click',pulsar1,false);
+        boton[5].addEventListener('click',pulsar2,false);
+      }
+    </script>
+
+  </head>
+  <body>
+    <div class="container">
+      <br>
+      <div class="row">
+        <article class="btn-group">
+          <!-- BIEN -->
+          <input type="button" value="boton0" class="btn btn-warning" onclick="pulsar1()">
+          <!-- MAL NO SE EJECUTARIA!! -->
+          <input type="button" value="boton1" class="btn btn-danger" onclick="pulsar1">
+          
+          <input type="button" value="boton2" class="btn btn-success">
+          <input type="button" value="boton3" class="btn btn-success">
+          <input type="button" value="boton4" class="btn btn-danger">
+          <input type="button" value="boton5" class="btn btn-primary">
+        </article>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>BOM</title>
+	<meta charset="utf-8">
+	<meta name="description" content="Para los buscadores">
+	<meta name="keywords" content="Palabras clave para los buscadores">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script type="text/javascript">
+		window.onload = function(){
+			var pesVivos = document.getElementsByTagName('p');
+			var pesEstaticos = document.querySelectorAll('p');
+
+			console.log("pesVivos: " + pesVivos.length);
+			console.log("pesEstaticos: " + pesEstaticos.length);
+
+			var nuevoP = document.createElement('p');
+			nuevoP.innerText = "soy el nuevo parrafo en la posicion 0";
+			// el array (pesVivos)     creado con getElements      ... SI se actualizará
+			// el array (pesEstaticos) creado con querySelectorAll ... NO se actualizará
+			document.body.insertBefore(nuevoP,pesEstaticos[0]);
+
+			console.log("pesVivos: " + pesVivos.length);
+			console.log("pesEstaticos: " + pesEstaticos.length);
+		}
+	</script>
+	
+</head>
+
+<body>
+	<p>Primer parrafo</p>
+	<p>segundo parrafo</p>
+	<p>tercer parrafo</p>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script>
+		(function(){
+				// _sumar es privada a la funcion anonima autoejecutada
+				// cuando se ejecute SE PIERDE _sumar ??
+				var _sumar = function(n1,n2){
+					return parseInt(n1)+parseInt(n2);
+				}
+				// como estamos en la ventana --> window.onload
+				// lo devuelve a la ventana
+				Calc = {
+					sumar: _sumar,
+				};
+				return Calc;
+			})()
+	</script>
+	<script type="text/javascript">
+		//window.onload = function(){
+			var n1 = 3;
+			var n2 = 5;
+			//var suma = window.Calc.sumar(n1,n2);
+			var suma = Calc.sumar(n1,n2);
+			console.log("el resultado es: " + suma);
+
+		//}
+	</script>
+</head>
+	<p>Mirar en consola</p>
+<body>
+
+
+</body>
+</html>

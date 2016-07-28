@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>AJAX javascript</title>		
+	<script type="text/javascript">
+		window.onload = function () {
+			var elP = document.getElementsByTagName('p')[0];
+			elP.onclick = function() {
+				console.log("click");
+				//repuesta en html 
+				// recibo un array de objetos
+				//Objeto para la comunicacion con el servidor
+				httpReq = new XMLHttpRequest();
+
+				// abro conexion con el servidor ASINCRONO(TRUE)
+				// METODO POST PORQUE SOLO QUIERO LOS QUE TIENEN POSTid=1
+				httpReq.open("GET",'http://jsonplaceholder.typicode.com/posts',true);
+				// envio la peticion Pasandole que que quiero PostId = 1
+				httpReq.send("comments?postId=1")
+				// que hago cuando el servidor me devuelva los datos
+				httpReq.onreadystatechange = function(){
+					console.log("ENTRO")
+					if (httpReq.readyState == 4 && httpReq.status == 200){
+						console.log("IF")
+						var lugarResp = document.getElementById('stage');
+						// Obtenemos la respesta y la converitimos a JSON
+						arrayRespuesta = JSON.parse(httpReq.response);
+
+						// Añadimos la tabla al div
+						var tabla = document.createElement("table");
+						tabla.style.borderCollapse = "collapse"; 
+						lugarResp.appendChild(tabla);
+						var cabTabla = document.createElement("thead");
+						tabla.appendChild(cabTabla);
+						
+						// recorremos solo el primer elemento para quedarnos con las claves y poder pintar la cabecera
+						for ( var clave in arrayRespuesta[0] ) {
+							var tdCab = document.createElement("td"); 
+							tdCab.style.border = "2px solid darkRed";
+							tdCab.innerText = clave;
+							cabTabla.appendChild(tdCab);
+						}
+
+						// Recorremos todo el array compuesto de objetos JSON
+						// para pintar el valor de cada clave de cada objeto JSON 
+						// en una fila nueva de la tabla !!!
+						for ( var jason in arrayRespuesta ){
+							var fila = document.createElement("tr");
+							tabla.appendChild(fila);
+							for ( k in arrayRespuesta[jason] ){
+								var tdFila = document.createElement("td");
+								tdFila.style.border = "2px solid darkOrange";
+								tdFila.innerText = arrayRespuesta[jason][k];
+								fila.appendChild(tdFila);
+							}
+						}
+
+
+					}
+				}
+			}
+		}
+
+	</script>
+
+</head>
+<body>
+	<p> Haz click en MI para cargar la página con una peticion AJAX</p>
+	<div id="stage" style="background:lightgreen">
+		STAGE
+	</div>
+</body>
+</html>

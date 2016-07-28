@@ -1,0 +1,45 @@
+<!-- 
+Radio para decidir si presentamos a los usuarios ordenados 
+por userId ascendentemente o descendentemente
+
+el criterio los guardamos en {{criterioOrdenacion}}
+-->
+<br>
+<div class="row">
+	<form class="form-horizontal">
+	    <label class="col-md-2 col-md-offset-1">Criterio de Ordenacion por TITULO</label>
+	    <label class="radio-inline" ng-init="ordenacion.title=false">
+	        <input type="radio" name="ordenar" ng-model="ordenacion.title" ng-value="false" ng-checked="true">Ascendente
+	    </label>
+	  	<label class="radio-inline">
+	    	<input type="radio" name="ordenar" ng-model="ordenacion.title" ng-value="true">Descendente
+	    </label>
+	</form>
+</div>
+<!--
+desde el controlador que esta en js/controladores/todosLosUsuariosCtrl.js
+creamos la funcion todosLosUsuariosCtrl que:
+* hara la peticion AJAX con el servicio $http para obtener todos los usuarios
+* dejara los resultados en el array de objetos $scope.usuarios
+-->
+<br>
+<div class="row">
+	<table class="col-md-6 col-md-offset-1 table-striped table-bordered">
+		<thead>
+			<tr>
+				<td>ID</td><td>USER ID</td><td>TITLE</td>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="usuario in usuarios | orderBy:'title':ordenacion.title">
+			<!-- 
+			ng-href:
+				a la ruta le añadimos (#) /id/el_id_del_usuario_pinchado
+			 -->
+				<td><a ng-href="#/id/{{ usuario.id }}">{{ usuario.id }}</a></td>
+				<td><a ng-href="#/usuario/{{ usuario.userId }}">{{ usuario.userId }}</a></td>
+				<td>{{ usuario.title }}</td>
+			</tr>
+		</tbody>
+	</table>
+</div>

@@ -1,0 +1,56 @@
+/* CSS Document */
+body {
+    margin: 10px;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+h2 {
+    font-size: 24px;
+    color: navy;
+}
+
+li {
+    list-style-type: none;
+    padding-bottom: 10px;
+}
+
+img {
+    border: 1px solid #808080;
+    float: left;
+    margin-right: 12px;
+}
+
+.recuadro {
+    border: 1px solid #0f4e35;
+    padding: 21px;
+}
+
+.ficha {
+    background-color: aliceblue;
+}
+
+/* Zona de estilos- Estas clases están 
+     */
+.ng-enter {
+    -moz-transition:all linear 0.50s;
+    -o-transition:all linear 0.50s;
+    -webkit-transition: 0.50s;
+    transition:all linear 0.50s;
+    opacity: 0;
+}
+
+.ng-enter-active {
+    opacity: 1;
+}
+
+.ng-leave {
+    -moz-transition: 0.5s;
+    -o-transition: 0.5s;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+    opacity: 1;
+}
+
+.ng-leave-active {
+    opacity: 0;
+}

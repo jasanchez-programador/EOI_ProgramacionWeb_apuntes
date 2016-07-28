@@ -1,0 +1,209 @@
+	<!-- 
+	Nombre: solo letras ++ obligatorio
+	Contraseña: 1Mayus_1Minus_1num + minimo 8 caracteres + obligatorio
+
+	Edad: entre 1 y 110 + obligatorio
+	Email: con @ y dominio .esp
+
+	sexo: obligatorio
+	
+	telefono fijo: 9 digitos empezando por 8 o 9 ++ NO OBLIGATORIO
+	telefono movil: 9 digitos empezando por 6 o 7 ++ NO OBLIGATORIO
+	
+	comentario: nada
+	-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>plantilla Bootstrap</title>
+    <!-- CSS de Bootstrap-->
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <!-- Librería jQuery requerida por los plugins de JavaScript -->
+    <script src="http://code.jquery.com/jquery.js"></script>
+    <!-- JavaScript de Bootstrap -->
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <!-- JavaScript con CORE de Angular1 -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></script>
+	<!--
+	<link rel="stylesheet" href="css/6-EJERCICIOValidacionFormulario.css">
+	<script src="js/6-EJERCICIOValidacionFormulario.js"></script>
+    -->
+    <style>
+    	input.ng-invalid{
+    		border: 2px solid red;
+    	}
+    </style>
+
+	<script>
+		var formularioModulo =  angular.module('formularioApp',[]);
+
+		formularioModulo.controller('formularioCtrl', function($scope){
+			// para determinar si debemos activar el boton de submit
+			// porque el formulario es valido
+			$scope.activoEnvio = function(){
+				// si el formulario es invalido devuelvo true
+				return $scope.miFormularo1.$invalid;
+			}
+
+			// Pintar el objeto JSON de datos con los datos a enviar al servidor
+			$scope.pintarDatos = function(){
+				console.log("funciona ng-click");
+				console.log(JSON.stringify($scope.datos))
+			}
+
+			// Objeto usado para crear la lista de coches a elegir
+			$scope.coches = [
+				{marca:"mazda",modelo:"6",pais:"Japon"},
+				{marca:"mazda",modelo:"CX-5",pais:"Japon"},
+				{marca:"opel",modelo:"Insignia",pais:"Alemania"},
+				{marca:"opel",modelo:"Astra",pais:"Alemania"},
+				{marca:"renault",modelo:"Megane",pais:"Francia"},
+				{marca:"renault",modelo:"Laguna",pais:"Francia"}
+			]
+			
+			$scope.marcaModelo = function(car){
+				return car.marca + " " + car.modelo;
+			};
+
+			$scope.enviarFormulario = function(){
+				alert(JSON.stringify($scope.datos));
+			}
+		})
+	</script>
+
+  </head>
+  <body ng-app="formularioApp" ng-controller="formularioCtrl">
+    <div class="container">
+      <br>
+      <div class="row"> 
+      
+		<form name="miFormularo1" action="#alservidor" method="get" class="form-horizontal" ng-submit="enviarFormulario()">
+			<fieldset>
+				<legend>Datos conexi&oacute;n</legend>
+				<div class="form-group">
+					<label class="col-md-2" id="text">Nombre: </label>
+					<div class="col-md-3">
+						<input name="nombre" type="text" class="form-control" ng-pattern="/^[a-zA-Z].*/" ng-maxlength='10' ng-required='true' ng-model="datos.nombre">
+					</div>
+					<div ng-show="datos.nombre.length > 0" ng-bind="datos.nombre | json"></div>
+					<div ng-show="miFormularo1.nombre.$error.required" class="label-warning text-center col-md-2">Campo obligatorio</div>
+					<div ng-show="miFormularo1.nombre.$error.pattern" class="label-warning text-center col-md-2">Formato Invalido</div>
+				</div>
+				<div class="form-group">
+					<label class="col-md-2" id="lpassword">Contrase&ntilde;a: </label>
+					<div class="col-md-3">
+						<input class="form-control" id="pass" type="password" ng-pattern="/.{8}.*/" ng-required='true' ng-model="datos.pass">
+					</div>
+					<div ng-bind="datos.pass | json"></div>
+				</div>
+				<br>
+			</fieldset>
+			<fieldset>
+				<br>
+				<legend>Datos personales</legend>
+				<div class="form-group">
+					<label class="col-md-2" class="col-md-2" id="number">Edad: </label>
+					<div class="col-md-3">
+						<input class="form-control" type="number" ng-min="1" ng-max="110" ng-required='true' ng-model="datos.edad">
+					</div>
+					<div ng-bind="datos.edad | json"></div>
+				</div>
+				<div class="form-group">
+					<label class="col-md-2" id="date">Fecha de Nacimiento: </label>
+					<div class="col-md-3">
+						<input class="form-control" type="date" ng-required='true' ng-model="datos.fecha">
+					</div>
+					<div ng-bind="datos.fecha|json"></div>
+				</div>
+				<div class="form-group">
+					<label class="col-md-2" id="email">Email: </label>
+					<div class="col-md-3">
+						<input class="form-control" type="email" ng-pattern="/.*@.*\.esp$/" ng-required='true' ng-model="datos.mail">
+					</div>
+					<div ng-bind="datos.mail|json"></div>
+				</div>
+				<div class="form-group">
+					<label class="col-md-2" id="radio">Sexo: </label>
+					<div class="col-md-3"  ng-init="datos.sexo='mujer'">
+						<label class="radio-inline">
+							<input type="radio" value="hombre" ng-model="datos.sexo">hombre
+						</label>
+						<label class="radio-inline">
+							<input type="radio" value="mujer" ng-model="datos.sexo" ng-checked="true">mujer
+						</label>
+					</div>
+					<div ng-bind="datos.sexo|json"></div>
+				</div>
+				<div class="form-group">
+					<label class="col-md-2" id="telfijo">Tel&eacute;fono fijo: </label>
+					<div class="col-md-3">
+						<input class="form-control" type="tel" ng-model="datos.telFijo" ng-pattern="/^[89]\d{8}$/">
+					</div>
+					<div ng-bind="datos.telFijo|json"></div>
+				</div>
+				<div class="form-group">
+					<label class="col-md-2" id="telmovil">Tel&eacute;fono movil: </label>
+					<div class="col-md-3">
+						<input class="form-control" type="tel" ng-model="datos.telMovil" ng-pattern="/^[67]\d{8}$/">
+					</div>
+					<div ng-bind="datos.telMovil|json"></div>
+				</div>
+				<div class="form-group">
+					<label class="col-md-2">Coche Favorito Por MODELO // OBJETO</label>
+					<div class="col-md-3">
+
+						<select class="form-control" ng-model="datos.coche1" ng-required="true" ng-options="c.modelo for c in coches"></select>					
+					</div>
+					<div ng-bind="datos.coche1|json"></div>
+				</div>
+				<div class="form-group">
+					<label class="col-md-2">Coche Favorito Por MODELO // ATRIBUTO MODELO</label>
+					<div class="col-md-3">
+
+						<select class="form-control" ng-model="datos.coche11" ng-required="true" ng-options="c.modelo as c.modelo for c in coches"></select>					
+					</div>
+					<div ng-bind="datos.coche11|json"></div>
+				</div>
+				<div class="form-group">
+					<label class="col-md-2">Coche Favorito Por MARCA Y MODELO // OBJETO</label>
+					<div class="col-md-3">
+						<select class="form-control" ng-model="datos.coche2" ng-required="true" ng-options="marcaModelo(c) for c in coches"></select>					
+					</div>
+					<div ng-bind="datos.coche2|json"></div>
+				</div>
+				<div class="form-group">
+					<label class="col-md-2">Coche Favorito Por MARCA Y MODELO // ATRIBUTOS MARCA Y MODELO</label>
+					<div class="col-md-3">
+						<select class="form-control" ng-model="datos.coche22" ng-required="true" ng-options="marcaModelo(c) as marcaModelo(c) for c in coches"></select>					
+					</div>
+					<div ng-bind="datos.coche22|json"></div>
+				</div>
+				<div class="form-group">
+					<label class="col-md-2">Coche Favorito Por MARCA Y MODELO AGRUPADO POR PAIS // ATRIBUTOS MARCA Y MODELO</label>
+					<div class="col-md-3">
+						<select class="form-control" ng-model="datos.coche3" ng-required="true" ng-options="marcaModelo(c) as marcaModelo(c) group by c.pais for c in coches"></select>					
+					</div>
+					<div ng-bind="datos.coche3|json"></div>
+				</div>
+				<div class="form-group">
+					<label class="col-md-2" id="textarea">Comentarios: </label>
+					<div class="col-md-3">
+						<textarea class="form-control" ng-model="datos.comentario" ng-col="20" ng-rows="3"></textarea>
+					</div>
+					<div ng-bind="datos.comentario|json"></div>
+				</div>
+			</fieldset>
+			<div>
+				<input class="btn btn-primary" type="submit" id="enviar" value="Enviar" ng-disabled="activoEnvio()"> <!-- El boton esta DISABLE hasta que la funcion devuelva FALSE -->
+				<input class="btn btn-info" type="reset" id="limpiar" value="limpiar formulario">
+				<input class="btn btn-default" type="button" id="verDatos" value="Ver Datos" ng-click="pintarDatos()">
+			</div>
+		</form>
+
+		</div>
+    </div>
+
+	</body>
+</html>

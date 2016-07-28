@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en" data-ng-app="tablaUsuariosModule" ng-controller="datosTablaCtrl">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Usuarios de placeHolder en Tabla </title>
+    <!-- CSS de Bootstrap-->
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <!-- Librería jQuery requerida por los plugins de JavaScript -->
+    <script src="http://code.jquery.com/jquery.js"></script>
+    <!-- JavaScript de Bootstrap -->
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <!-- JavaScript con TODO Angular1 -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></script>
+    <!-- // <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.9/angular.min.js"></script> -->
+    <script>
+        // MODULO
+        var tablaUsuariosModule = angular.module('tablaUsuariosModule', []);
+
+        // CONTROLLER datosTablaCtrl para el MODULO
+        // Como dependencias inyectadas usamos:
+        //  --> $http ==> servicio AJAX
+        //  --> $log  ==> servicio que sustituye al console
+        tablaUsuariosModule.controller('datosTablaCtrl', function ($scope,$http,$log) {
+            // LLAMADA AJAX para obtener los datos
+            // dejamos el array con todos los usuarios en la variable del $scope:
+            // $scope.usuarios
+            $http.get('http://jsonplaceholder.typicode.com/posts')
+              .success(function(listaUsuarios){
+                  // llegan los datos como un array de JSON
+                  // como valor en la clave data
+                  $scope.usuarios = listaUsuarios;
+                  $log.log("USUARIOS: " + JSON.stringify(listaUsuarios))
+                })
+              .error(function(error) {
+                  console.log("errorr");
+                })
+        })
+    </script>
+    <style>
+      li{
+        border-top: 1px solid darkOrange; 
+        border-bottom:: 1px solid darkOrange;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <br>
+      <div class="row">
+        <h2>Ejemplo: controller y servicio http(AJAX) + FILTROS</h2>
+      </div>
+      <br>
+      <div class="row">
+        <div class="form-group">
+          <label class="col-md-offset-2 col-md-2">Criterio de Búsqueda</label>
+          <div class="col-md-6">
+            <input type="text" class="form-control" data-ng-model="filtro">
+          </div>
+        </div>
+      </div>
+      <br>
+      <br>
+      <ul class="list-inline">
+        <li ng-if="(k != 'title' && k != 'body')" class="list-item col-md-1" ng-repeat="(k, v) in usuarios[0]"> 
+        <!-- Filtro para poner la clave en Mayusculas -->
+          {{ k | uppercase }}
+        </li>
+        <li ng-if="k == 'title'" class="list-item col-md-3" ng-repeat="(k, v) in usuarios[0]">
+        <!-- Filtro para poner la clave en Mayusculas -->
+          {{ k | uppercase }}
+        </li>
+        <li ng-if="k == 'body'" class="list-item col-md-7" ng-repeat="(k, v) in usuarios[0]">
+        <!-- Filtro para poner la clave en Mayusculas -->
+          {{ k | uppercase }}
+        </li>
+      </ul>
+      <!-- para los valores -->
+      <ul class="list-inline">
+        <!-- Filtros para: poner Oredar por TITLE DESCENDENTE-->
+        <div ng-repeat="(pos,objeto) in usuarios | orderBy:'title':true | filter: filtro"> 
+          <!--<li ng-if="(k != 'title' && k != 'body')" class="list-item col-md-1" ng-repeat="(k, v) in objeto">
+            {{ v }}
+          </li>-->
+<!-- FILTRAMOS por la cadena introducida por el usuario 
+en el INPUT con ng-model "filtro"  -->
+          <li ng-if="(k == 'userId')" class="list-item col-md-1" ng-repeat="(k, v) in objeto">
+            {{ v | number:2 }}
+          </li>
+          <li ng-if="(k == 'id')" class="list-item col-md-1" ng-repeat="(k, v) in objeto">
+            {{ v | currency }}
+          </li>
+          <li ng-if="k == 'title'" class="list-item col-md-3" ng-repeat="(k, v) in objeto">
+            {{ v }}
+          </li>
+          <li ng-if="k == 'body'" class="list-item col-md-7" ng-repeat="(k, v) in objeto">
+            {{ v }}
+          </li>
+        </div>
+      </ul>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script>
+		var Calc = (function(){
+				var _sumar = function(n1,n2){
+					if ( isNaN(parseInt(n1)) && isNaN(parseInt(n2)) ){
+						throw new Error("Debes introducir Numeros");
+					}
+					else {
+						return parseInt(n1)+parseInt(n2);
+					}
+				}
+
+				// como estamos en la ventana --> window.onload
+				// lo devuelve a la ventana
+				return {
+					sumar: _sumar,
+				};
+			})()
+	</script>
+	<script type="text/javascript">
+		//window.onload = function(){
+			var n1 = 3;
+			var n2 = 5;
+
+			try {
+				var suma2 = Calc.suma("a","a");
+				console.log("el resultado es: " + suma2);
+			}
+			catch(e){
+				alert("ERROR: " + e.code +"--"+e.message);
+			}
+			try {
+				var suma = Calc.sumar(n1,n2);
+				console.log("el resultado es: " + suma);
+			}
+			catch(e){
+				alert("ERROR: " + e.code +"--"+e.message);
+			}	
+		//}
+	</script>
+</head>
+	<p>Mirar en consola</p>
+<body>
+
+
+</body>
+</html>

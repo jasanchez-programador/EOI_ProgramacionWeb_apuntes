@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Eventos Teclado y Raton</title>
+    <!-- CSS de Bootstrap-->
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <!-- Librería jQuery requerida por los plugins de JavaScript -->
+    <script src="http://code.jquery.com/jquery.js"></script>
+    <!-- JavaScript de Bootstrap -->
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script>
+      window.onload = function(){
+        // boleano que sabe si eres o no IE
+        var soy_ie = navigator.userAgent.toLowerCase().indexOf('msie') == -1;
+        
+        // Parte del teclado
+        document.onkeypress = function(infoEvento){
+          var infoEvento = infoEvento || window.event;
+          var tecla = null;
+          if (soy_ie){
+            tecla = String.fromCharCode(infoEvento.keyCode);
+          }
+          else{
+            tecla = String.fromCharCode(infoEvento.charCode);
+          }
+          console.log("Se ha pulsado la tecla: " + tecla);
+        }
+
+        // Parte del raton
+        document.onclick = function(infoEvento){
+          var infoEvento = infoEvento || window.event;
+          var x = null;
+          var y = null;
+          if (soy_ie){
+            x = infoEvento.clientX + document.body.scrollLeft;
+            y = infoEvento.clientY + document.body.scrollTop;
+          }
+          else {
+            x = infoEvento.pageX;
+            y = infoEvento.pageY;
+          }
+          console.log("el raton estaba en: (" + x +","+y+")");
+
+        }
+      }
+    </script>
+
+  </head>
+  <body>
+    <div class="container">
+      <br>
+      <div class="row">
+        <p>Mirar en la Consola la tecla pulsada o posición de ratón al hacer click</p>
+      </div>
+    </div>
+  </body>
+</html>

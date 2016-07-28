@@ -1,0 +1,22 @@
+﻿<!doctype html>
+<html lang="es" ng-app="aplicacion_ciclismo">
+<head>
+    <meta charset="utf-8">
+    <link href="Estilos/estilos.css" rel="stylesheet" media="screen">
+    <title>Listado de Ciclistas</title>
+    <!-- Zona de carga de librerías-->
+    <script src="Scripts/angular.js"></script>
+    <script src="Scripts/angular-route.js"></script>
+    <script src="Scripts/angular-animate.js"></script>
+    <script src="Codigo/aplicacion_ciclismo.js"></script>
+    <script src="Codigo/Controladores/ListadoController.js"></script>
+    <script src="Codigo/Controladores/DetalleCiclistaController.js"></script>
+</head>
+<body>
+    <!-- ng-view es una directiva que complementa el servicio de "routing"
+        mediante la inserción de plantillas dentro de la página principal.
+        Cuando cambia la vista, cambia la plantilla en función de lo definido
+        en el servicio de "routing"-->
+    <div ng-view class="ng-enter ng-active"></div>
+</body>
+</html>

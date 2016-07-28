@@ -1,6 +1,6 @@
 // INICIO donde llamos a Jquery, bootstrap y 
 // nuestro modulo que define los EVENTOS en los qe escuchamos!!!!
-equirejs.config({
+requirejs.config({
 	// alias para encontrar a jquery y bootstrap
 	paths: {
 		jquery: 'libs/jquery-2.1.4.min',

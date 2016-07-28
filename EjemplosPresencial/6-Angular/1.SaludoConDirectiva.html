@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+
+<!-- data-ng-app DIRECTIVA obligatoria que marca el inicio de ANGULAR -->
+<html lang="en" data-ng-app="">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Directivas</title>
+    <!-- CSS de Bootstrap-->
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <!-- Librería jQuery requerida por los plugins de JavaScript -->
+    <script src="http://code.jquery.com/jquery.js"></script>
+    <!-- JavaScript de Bootstrap -->
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+      <!-- JavaScript con TODO Angular1 -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
+    <script src=""></script>
+
+  </head>
+  <body>
+    <div class="container">
+      <br>
+      <div class="row">
+        <h2>Ejemplo: Bases de Data Binding.</h2>
+        <h3>Directivas SIMILAR a variables dentro de HTML</h3>        
+      </div>
+      <br>
+      <div class="row">
+        <article class="form-group col-md-offset-3 col-md-3">
+          <label for="n">Quien Eres ?? </label>
+          <!-- Directiva para activar el DataBinding con la variable nombre
+          que hace referencia al MODELO.
+          posteriormente desde otros elementos se podra acceder al dato de ese modelo-->
+          <input id="n" type="password" class="form-control" ng-model="nombre">
+        </article>
+      </div>
+      <div class="row">  
+        <article class="form-group col-md-offset-3 col-md-3">
+          <label>Hola </label>
+          <!-- Sustituacion automatica de la variable nombre del DataBinding 
+          con sintaxis MOUSTACHE-->
+          <input type="text" class="form-control" value="{{nombre}}" disabled>
+        </article>
+      </div>
+    </div>
+  </body>
+
+</html>

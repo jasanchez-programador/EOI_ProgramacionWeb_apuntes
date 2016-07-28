@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Ejercicio DOM -- Mostrar la frase</title>
+	<style type="text/css">
+		body {
+			text-align: center;
+		}
+	</style>
+	<script type="text/javascript">
+		window.onload=function(){
+			var ps = document.getElementsByTagName("p");
+			ps[0].onclick=function(){
+				//var padre = inicio_frase.parentNode;
+				if (ps.length === 1){
+					var texto = document.createTextNode("de cuyo nombre no quiero acordarme ...");
+					var fin_frase = document.createElement("p");
+					fin_frase.appendChild(texto);
+					ps[0].parentNode.appendChild(fin_frase);
+				}
+				else {
+				ps[1].parentNode.removeChild(ps[1]);
+				}				
+			}
+		}
+	</script>
+</head>
+<body>
+	<!-- si cambio las <p> por <span> salen al lado y no debajo -->
+	<p id="iniciofrase"> en un lugar de la mancha ... </p>
+</body>
+</html>

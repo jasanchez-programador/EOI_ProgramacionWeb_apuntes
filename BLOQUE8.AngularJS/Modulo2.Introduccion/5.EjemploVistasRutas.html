@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" data-ng-app="vistasRutasApp">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Plantilla AngularJS</title>
+    <!-- CSS de Bootstrap-->
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <!-- Librería jQuery requerida por los plugins de JavaScript -->
+    <script src="http://code.jquery.com/jquery.js"></script>
+    <!-- JavaScript de Bootstrap -->
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <!-- JavaScript con TODO Angular1 -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></script>
+    <!-- cdn de angular route para poder usar ngRoute -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0/angular-route.js"></script>
+    <!-- // <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.9/angular.min.js"></script> -->
+    <!-- cdn de angular route para poder usar ngRoute -->
+    <!-- // <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.9/angular-route.js"></script> -->
+    
+    <script>
+      var vistasRutasModule = angular.module('vistasRutasApp', ['ngRoute']);
+      vistasRutasModule.config(['$routeProvider', function ($routeProvider) {
+        // el contenido a poner en el elemento del DOM que posea ng-view
+        // dependiendo de la URL
+        $routeProvider.
+// http://localhost:8000/BLOQUE8.AngularJS/Modulo2.Introduccion/5.EjemploVistasRutas.html#/
+          when("/",{templateUrl:'vistas/vistaRaiz.html'}).
+// http://localhost:8000/BLOQUE8.AngularJS/Modulo2.Introduccion/5.EjemploVistasRutas.html#/vista1
+          when("/vista1",{templateUrl:'vistas/vista1.html'}).
+// http://localhost:8000/BLOQUE8.AngularJS/Modulo2.Introduccion/5.EjemploVistasRutas.html#/vista2
+          when("/vista2",{templateUrl:'vistas/vista2.html'}).
+// http://localhost:8000/BLOQUE8.AngularJS/Modulo2.Introduccion/5.EjemploVistasRutas.html#/vista3
+          when("/vista3",{templateUrl:'vistas/vista3.txt'}).
+          otherwise({ redirectTo: '/' })
+      }]);
+    </script>
+
+  </head>
+  <body>
+    <div class="container">
+      <br>
+      <div class="row">
+        <header class="col-md-offset-1">
+          <h2>Cabecera que siempre está</h2>
+        </header>
+      </div>
+      <br>
+      <div class="row">
+        <!-- Donde se cargara el HTML/txt que indique la vista -->
+        <article class="col-md-offset-2" data-ng-view>
+        </article>
+      </div>
+      <br>
+      <footer class="col-md-offset-1" >
+        <h3>Pie de página que siempre está</h3>
+      </footer>
+    </div>
+  </body>
+</html>

@@ -1,5 +1,6 @@
 // controlador que crea las funciones que 
 // dan la funcionalidad cuando se actua con la vista
+// SOLO TENEMOS HACER CLICK EN 2 BOTONES
 define(['elementosDOM','vista','punto2D','utilidades'],function(eDom,v,punto,utils){
 	var p = null;
 	var _btnClickCrearPunto = function(){

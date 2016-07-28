@@ -1,0 +1,35 @@
+<br>
+<div class="row">
+	<h2 class="text-center text-danger">Guardar Nuevo coche en garaje</h2>
+</div>
+<div class="row">
+	<br>
+	<form name="nuevo" class="form-horizontal col-md-offset-4" ng-submit="aparcar()">
+		<div class="form-group ">
+			<label class="col-md-1">Marca</label>
+			<div class="col-md-3">
+				<input type="text" class="form-control" ng-model="coche.marca" ng-pattern="/^\w+/" ng-required="true">
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="col-md-1">Modelo</label>
+			<div class="col-md-3">
+				<input type="text" class="form-control" ng-model="coche.modelo" ng-pattern="/^\w+/" ng-required="true">
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="col-md-1">Pais</label>
+			<div class="col-md-3">
+				<input type="text" class="form-control" ng-model="coche.pais" ng-pattern="/^\w+/" ng-required="true">
+			</div>
+		</div>
+		<div class="btn-group  col-md-offset-1">
+			<button name="enviar" type="submit" class="btn btn-warning" ng-disabled="activoEnvio()">
+				Guardar
+			</button>
+			<button name="limpiar" type="reset" class="btn btn-warning">
+				Limpiar
+			</button>
+		</div>
+	</form>
+</div>

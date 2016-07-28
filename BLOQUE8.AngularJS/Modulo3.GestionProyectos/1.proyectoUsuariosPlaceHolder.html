@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="usuariosApp">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Plantilla AngularJS</title>
+    <!-- CSS de Bootstrap-->
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <!-- Librería jQuery requerida por los plugins de JavaScript -->
+    <script src="http://code.jquery.com/jquery.js"></script>
+    <!-- JavaScript de Bootstrap -->
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <!-- JavaScript con TODO Angular1 -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></script>
+    <!-- cdn de angular route para poder usar ngRoute -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0/angular-route.js"></script>
+    <link rel="stylesheet" href="css/1.proyectoUsuariosPlaceHolder.css">
+    <script src="js/1.proyectoUsuariosAngular.js"></script>
+    <script src="js/controladores/proyectoUsuariosControllers.js"></script>
+
+  </head>
+  <body>
+    <div class="container">
+      <br>
+      <div class="row">
+        <h3>Listado de Usuarios</h3>
+      </div>
+      <br>
+      <section ng-view>
+      </section>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,17 @@
+div#destino{
+    border: 1px solid darkRed;
+    padding: 5px;
+    text-align: center;
+}
+section.row{
+    border: 1px dashed darkRed;
+    text-align: center;
+    padding: 1em; /* Para que quede hueco donde soltar si esta vacio */
+}
+img{
+    width: 20%;
+    padding: 2em;
+}
+section.dentro{
+	border: 3px solid darkOrange;
+}

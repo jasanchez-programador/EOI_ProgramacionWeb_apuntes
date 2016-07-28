@@ -4,36 +4,6 @@
 	<title>BOM</title>
 	<meta charset="utf-8">
 	<meta name="description" content="Para los buscadores">
-	<script type="text/javascript">
-
-		function pintar0(){
-			console.log("has pinchado en el boton0")
-		}
-
-		function pintar1(){
-			console.log("has pinchado en el boton1");
-		}
-		function pintar2(){
-			console.log("Soy boton2 y al ponerme los parentesis ME EJECUTO al manejar el evento en la carga de la pagina UNICAMENTE")
-		}
-		window.onload = function(){
-			var botones = document.getElementsByTagName('input');
-			
-			botones[1].onclick = pintar1;
-			botones[2].onclick = pintar2(); // MAL
-			botones[3].onclick = function(){
-				console.log("has pinchado en el boton3");
-			}
-
-		}
-
-		window.onbeforeunload = function(){
-			return "Estas intentando cerrar la pagina!!!"
-			this.style.backgroundColor = red;
-
-
-		}
-	</script>
 	<style>
 		window{
 			background-color: red;
@@ -51,5 +21,46 @@
 	<input type="button" value="boton2">
 	<br>
 	<input type="button" value="boton3">
+	<br>
+	<input type="button" value="boton4">
 </body>
+<script type="text/javascript">
+
+		function pintar0(){
+			console.log("has pinchado en el boton0")
+		}
+
+		function pintar1(){
+			console.log("has pinchado en el boton1");
+		}
+		function pintar2(){
+			console.log("Soy boton2 y al ponerme los parentesis ME EJECUTO al manejar el evento en la carga de la pagina UNICAMENTE")
+		}
+
+		function pintar4_1(){
+			console.log("has pinchado el boton4 -- Manejador 1");
+		}
+		
+		function pintar4_2(){
+			console.log("has pinchado el boton4 -- Manejador 2");
+		}
+
+		var botones = document.getElementsByTagName('input');
+			
+		botones[1].onclick = pintar1;
+		botones[2].onclick = pintar2(); // MAL
+		botones[3].onclick = function(){
+			console.log("has pinchado en el boton3");
+		}
+		// Podemos tener varias funciones!!
+		botones[4].addEventListener('click',pintar4_1,false);
+		botones[4].addEventListener('click',pintar4_2,false);
+
+		window.onbeforeunload = function(){
+			return "Estas intentando cerrar la pagina!!!"
+			this.style.backgroundColor = red;
+
+
+		}
+	</script>
 </html>

@@ -4,6 +4,6 @@ $colorClaro: lighten($color, 20%);
 $colorOscuro: darken($color, 20%);
 // mixins o funciones para establecer el redondeo y tamaño del borde
 @mixin anchoBorde($enpx: 1px){
-	border: $enpx solid $color;
+	border: $enpx solid $color
 	border-radius: $enpx*10;
 }
