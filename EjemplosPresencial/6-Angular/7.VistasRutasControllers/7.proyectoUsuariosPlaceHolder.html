@@ -22,12 +22,41 @@
   <body ng-app="usuariosApp">
     <div class="container">
       <br>
-      <div class="row">
-        <h3>Listado de Usuarios</h3>
-      </div>
+      <nav class="navbar navbar-inverse navbar-static-top">
+        <br>
+        <div class="container-fluid">
+          <h2 ng-big-scale class="text-danger col-md-offset-4">Mi barra de navegacion</h2>
+          <!-- NUEVO Boton oculto que collapsed/AGRUPA al que tenga como id="a-quien-agrupo" 
+          se mantiene fijo arriba en la ventana -->
+          <button type="button" class="pull-left navbar-toggle collapsed" 
+                  data-toggle="collapse" data-target="#a-quien-agrupo">
+            <span class="sr-only">Toggle navigation</span>
+            <!-- 3 rayas simulan la hamburguesa -->
+            <span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
+          </button>
+          <!-- barra de navegacion en formato BUTONES 
+            color de texto naranja color de fondo azul claro-->
+          <div class="row collapse navbar-collapse" id="a-quien-agrupo">
+            <ul class="nav nav-pills col-md-offset-5">
+              <li><a href="#/" class="btn btn-danger">Inicio</a></li>
+              <li class="dropdown">
+                <a class="btn btn-danger dropdown-toggle" 
+                  data-toggle="dropdown">menu 2<span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                  <!-- color de texto zul claro color de fondo naranja -->
+                  <li><a href="#/Submenu1" class="bg-danger">submenu 1</a></li>
+                  <li><a href="#/Submenu2" class="bg-danger">submenu 2</a></li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <br>
+      </nav>
       <br>
       <section ng-view>
       </section>
     </div>
+    <br><br>
   </body>
 </html>

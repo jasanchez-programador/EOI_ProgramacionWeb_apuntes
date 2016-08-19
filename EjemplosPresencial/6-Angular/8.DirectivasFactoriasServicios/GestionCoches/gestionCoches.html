@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" >
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Plantilla AngularJS</title>
+    <!-- CSS de Bootstrap-->
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <!-- Librería jQuery requerida por los plugins de JavaScript -->
+    <script src="http://code.jquery.com/jquery.js"></script>
+    <!-- JavaScript de Bootstrap -->
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <!-- JavaScript con CORE de Angular1 -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></script>
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.9/angular.min.js"></script> -->
+    <!-- cdn de angular route para poder usar ngRoute -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0/angular-route.js"></script>
+    <!-- Mis scripts -->
+    <script src="js/servicios/gestionCochesSrv.js"></script>
+    <script src="js/factorias/gestionCochesFctr.js"></script>
+    <script src="js/controladores/gestionCochesCtrl.js"></script>
+    <script src="js/gestionCochesApp.js"></script>
+    
+    <style>
+
+      .nav>li>a:focus {
+        background-color: #d9534f;
+      }
+      .nav>li>a:hover {
+        background-color: DarkRed;
+      }
+      /*.nav>li:first-child>a:active {
+        background-color: #d9534f;
+      }
+      .nav>li:first-child>a:focus {
+        background-color: transparent;
+      }*/
+      .dropdown-menu,ul.dropdown-menu>li>a {
+        background-color: darkOrange;
+      }
+      ul.dropdown-menu>li>a:hover {
+        background-color: orange;
+      }
+      
+    </style>
+  </head>
+  <body ng-app="gestionCochesApp">
+    <div class="container">
+      <br>
+      <ng-my-nav></ng-my-nav>
+      <br>
+      <!-- 
+      Donde Iran las Vistas
+      -->
+      <div ng-view>
+
+      </div>
+    </div>
+  </body>
+</html>

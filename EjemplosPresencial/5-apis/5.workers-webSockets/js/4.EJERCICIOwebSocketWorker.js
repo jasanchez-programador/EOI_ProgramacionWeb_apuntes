@@ -1,6 +1,6 @@
 $(document).ready(function(){
 
-	var worker = new Worker("js/36-webSocketWorkerWorker.js");
+	var worker = new Worker("js/4.EJERCICIOwebSocketWorkerWorker.js");
 
 	worker.onerror = function(err){
 		alert("ERROR: " + err.code+"--" + err.message);

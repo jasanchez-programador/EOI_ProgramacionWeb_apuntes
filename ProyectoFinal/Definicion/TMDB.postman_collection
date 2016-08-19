@@ -1,0 +1,137 @@
+{
+	"variables": [],
+	"info": {
+		"name": "TMDB",
+		"_postman_id": "f118a714-494a-2a88-9357-98d437af8b0a",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Movie Details",
+			"request": {
+				"url": "https://api.themoviedb.org/3/movie/297761?api_key=fab0d681bad186c13d8fd257b2115d2e&language=es",
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Discover Movies",
+			"request": {
+				"url": "https://api.themoviedb.org/3/discover/movie?primary_release_date.gte=2016-07-15&primary_release_date.lte=2016-08-15&sort_by=popularity.desc&api_key=fab0d681bad186c13d8fd257b2115d2e&language=es",
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"description": "Discover Movies in spanish with date range"
+			},
+			"response": []
+		},
+		{
+			"name": "Popular",
+			"request": {
+				"url": "https://api.themoviedb.org/3/movie/popular?api_key=fab0d681bad186c13d8fd257b2115d2e&language=es",
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"description": "Movie Popular"
+			},
+			"response": []
+		},
+		{
+			"name": "Top Rated",
+			"request": {
+				"url": "https://api.themoviedb.org/3/movie/top_rated?api_key=fab0d681bad186c13d8fd257b2115d2e&language=es",
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"description": "Top Rated movies"
+			},
+			"response": []
+		},
+		{
+			"name": "Poster Path",
+			"request": {
+				"url": "http://image.tmdb.org/t/p/w185/e1mjopzAS2KNsvpbpahQ1a6SkSn.jpg",
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"description": "Poster Path image display"
+			},
+			"response": []
+		},
+		{
+			"name": "Backdrop Path",
+			"request": {
+				"url": "http://image.tmdb.org/t/p/w185/bORe0eI72D874TMawOOFvqWS6Xe.jpg",
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"description": "Backdrop Path image display"
+			},
+			"response": []
+		},
+		{
+			"name": "Genres List",
+			"request": {
+				"url": "https://api.themoviedb.org/3/genre/movie/list?api_key=fab0d681bad186c13d8fd257b2115d2e&language=es",
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"description": "Listado de géneros"
+			},
+			"response": []
+		},
+		{
+			"name": "Discover by Genre",
+			"request": {
+				"url": "https://api.themoviedb.org/3/discover/movie?primary_release_date.gte=2016-07-15&primary_release_date.lte=2016-08-15&sort_by=popularity.desc&with_genres=28&api_key=fab0d681bad186c13d8fd257b2115d2e&language=es",
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"description": "Discover Movies in spanish with date range and genre adentures = 28"
+			},
+			"response": []
+		},
+		{
+			"name": "Search Movie by Title",
+			"request": {
+				"url": "https://api.themoviedb.org/3/search/movie?query=suicida&api_key=fab0d681bad186c13d8fd257b2115d2e&language=es",
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}

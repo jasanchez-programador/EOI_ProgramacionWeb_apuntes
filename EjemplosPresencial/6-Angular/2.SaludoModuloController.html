@@ -8,7 +8,6 @@ OBLIGATORIO a partir de la version 1.3.0
 <html lang="en" data-ng-app="HolaMundoApp" data-ng-controller="unionVistaModeloCtrl">
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>{{ "hola " + nombre}}</title>
     <!-- CSS de Bootstrap-->
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     <!-- Librería jQuery requerida por los plugins de JavaScript -->
@@ -21,11 +20,16 @@ OBLIGATORIO a partir de la version 1.3.0
     <script>
     // variable que define el modulo que "ENGANCHA" con la ng-app="HolaMundoApp"
     // En el modulo establecemos el controlador para que ejecute la funcion 
-
+    // que no tiene dependencias
         var HolaMundoModule = angular.module('HolaMundoApp', []);
         HolaMundoModule.controller('unionVistaModeloCtrl', function ($scope) {
           // lo unico que hace el controlador es inicializar la variable NOMBRE del modelo
-          $scope.nombre = "inicializado"
+          $scope.nombre = "Controlador";
+          console.log("Nombre Inicial: " + $scope.nombre)
+          // MIRAR los cambios del modelo en la INTERFAZ
+          $scope.$watch("nombre",function(nuevo,anterior){
+            console.log("Antes: " + anterior + " -- Ahora: " + nuevo)
+          })
         })
     </script>
 
@@ -34,14 +38,16 @@ OBLIGATORIO a partir de la version 1.3.0
     <div class="container">
       <br>
       <div class="row">
-        <h2>Ejemplo: Bases de Data Binding y Controller.</h2>
-        <h3>
+        <h2 class="text-center">
+          Ejemplo: Bases de TWO-WAY Data Binding y Controller.
+        </h2>
+        <h3 class="text-center">
           Directivas SIMILAR a variables dentro de HTML y compartidas con JavaScript        
         </h3>
       </div>
-      <br>
+      <hr>
       <div class="row">
-        <article class="form-group col-md-offset-3 col-md-3">
+        <article class="form-group col-md-offset-4 col-md-3">
           <label for="nombre">Quien Eres ?? </label>
           <!-- Directiva para activar el DataBinding con la variable nombre del MODELO.
           posteriormente desde otros elementos se podra acceder al dato de ese modelo-->
@@ -49,7 +55,7 @@ OBLIGATORIO a partir de la version 1.3.0
         </article>
       </div>
       <div class="row">  
-        <article class="form-group col-md-offset-3 col-md-3">
+        <article class="form-group col-md-offset-4 col-md-3">
           <label>Hola </label>
           <!-- Sustituacion automatica de la variable nombre del DataBinding 
           con sintaxis MOUSTACHE-->

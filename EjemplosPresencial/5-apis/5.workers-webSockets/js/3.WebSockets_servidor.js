@@ -2,7 +2,7 @@
 // npm install websocket
 
 // para ejecutarlo
-// node WebSockets1_servidor.js
+// node 3.WebSockets_servidor.js
 
 // Importamos de node el websocket y el servidor http
 var webSocket = require('websocket').server;

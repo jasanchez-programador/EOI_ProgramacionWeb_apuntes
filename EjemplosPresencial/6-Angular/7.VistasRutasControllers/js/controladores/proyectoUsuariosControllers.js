@@ -1,3 +1,4 @@
+
 var Ctrl = (function(){
 	// funcion que controla la vista principal para devolver todos los usuarios
 	var _todosLosUsuariosCtrl = function ($http,$scope){
@@ -10,8 +11,6 @@ var Ctrl = (function(){
 				$scope.usuarios="";
 				alert("ERROR: no se han encontrado usuarios " + err.code +"--"+err.message);
 			});
-		// inicializamos el criterio de ordenacion DESCENDENTE
-		$scope.criterioOrdenacion = false;
 	};
 
 
@@ -38,7 +37,7 @@ var Ctrl = (function(){
 		// o por ID 
 		$scope.ordenacion = {};
 		$scope.ordenacion.sentido = false; 
-		$scope.ordenacion.campo = 'title'
+		$scope.ordenacion.campo = 'title';
 
 		$http.get('http://jsonplaceholder.typicode.com/posts?userId='+$scope.userId)
 			.success(function(datosUsuario){
@@ -50,6 +49,7 @@ var Ctrl = (function(){
 				alert("ERROR: no se han encontrado usuarios " + err.code +"--"+err.message);
 			});
 	};
+
 	return {
 		todosLosUsuariosCtrl: _todosLosUsuariosCtrl,
 		usuarioCtrl: _usuarioCtrl,

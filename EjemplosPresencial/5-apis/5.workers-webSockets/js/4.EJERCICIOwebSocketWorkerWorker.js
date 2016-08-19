@@ -1,3 +1,5 @@
+// utilizamos el servidor websocket 3.WebSockets_servidor creado en el ejercicio anterior
+
 var clienteWS = new WebSocket("ws://localhost:8080/");
 
 clienteWS.onopen = function(){

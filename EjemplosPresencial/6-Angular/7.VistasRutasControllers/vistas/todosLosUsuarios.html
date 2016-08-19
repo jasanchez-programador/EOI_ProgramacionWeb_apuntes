@@ -5,16 +5,15 @@ por userId ascendentemente o descendentemente
 el criterio los guardamos en {{criterioOrdenacion}}
 -->
 <br>
-<div class="row">
-	<form class="form-horizontal">
-	    <label class="col-md-2 col-md-offset-1">Criterio de Ordenacion por TITULO</label>
+	<label class=" col-md-offset-3 col-md-3 text-center">Criterio de Ordenacion por TITULO</label>
+	<div class="col-md-3">
 	    <label class="radio-inline" ng-init="ordenacion.title=false">
 	        <input type="radio" name="ordenar" ng-model="ordenacion.title" ng-value="false" ng-checked="true">Ascendente
 	    </label>
 	  	<label class="radio-inline">
 	    	<input type="radio" name="ordenar" ng-model="ordenacion.title" ng-value="true">Descendente
 	    </label>
-	</form>
+	</div>
 </div>
 <!--
 desde el controlador que esta en js/controladores/todosLosUsuariosCtrl.js
@@ -23,8 +22,9 @@ creamos la funcion todosLosUsuariosCtrl que:
 * dejara los resultados en el array de objetos $scope.usuarios
 -->
 <br>
+<br>
 <div class="row">
-	<table class="col-md-6 col-md-offset-1 table-striped table-bordered">
+	<table class="col-md-6 col-md-offset-3 table-striped table-bordered">
 		<thead>
 			<tr>
 				<td>ID</td><td>USER ID</td><td>TITLE</td>

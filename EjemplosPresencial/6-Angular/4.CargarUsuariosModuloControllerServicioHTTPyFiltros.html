@@ -57,11 +57,16 @@
           <label class="col-md-offset-2 col-md-2">Criterio de Búsqueda</label>
           <div class="col-md-6">
             <input type="text" class="form-control" data-ng-model="filtro">
+            <!-- 
+            <input type="text" class="form-control" data-ng-model="filtro.body">
+            Si solo quieres filtrar por body
+            -->
           </div>
         </div>
       </div>
       <br>
       <br>
+      <!-- Para las claves -->
       <ul class="list-inline">
         <li ng-if="(k != 'title' && k != 'body')" class="list-item col-md-1" ng-repeat="(k, v) in usuarios[0]"> 
         <!-- Filtro para poner la clave en Mayusculas -->
@@ -76,13 +81,9 @@
           {{ k | uppercase }}
         </li>
       </ul>
+      
       <!-- para los valores -->
-      <ul class="list-inline">
-        <!-- Filtros para: poner Oredar por TITLE DESCENDENTE-->
-        <div ng-repeat="(pos,objeto) in usuarios | orderBy:'title':true | filter: filtro"> 
-          <!--<li ng-if="(k != 'title' && k != 'body')" class="list-item col-md-1" ng-repeat="(k, v) in objeto">
-            {{ v }}
-          </li>-->
+      <ul class="list-inline" ng-repeat="(pos,objeto) in usuarios | orderBy:'title':true | filter:filtro">
 <!-- FILTRAMOS por la cadena introducida por el usuario 
 en el INPUT con ng-model "filtro"  -->
           <li ng-if="(k == 'userId')" class="list-item col-md-1" ng-repeat="(k, v) in objeto">
@@ -90,6 +91,7 @@ en el INPUT con ng-model "filtro"  -->
           </li>
           <li ng-if="(k == 'id')" class="list-item col-md-1" ng-repeat="(k, v) in objeto">
             {{ v | currency }}
+            <!-- EN EUROS: {{ v | currency:'€'}} -->
           </li>
           <li ng-if="k == 'title'" class="list-item col-md-3" ng-repeat="(k, v) in objeto">
             {{ v }}
@@ -97,7 +99,7 @@ en el INPUT con ng-model "filtro"  -->
           <li ng-if="k == 'body'" class="list-item col-md-7" ng-repeat="(k, v) in objeto">
             {{ v }}
           </li>
-        </div>
+       <!-- </div> -->
       </ul>
     </div>
   </body>

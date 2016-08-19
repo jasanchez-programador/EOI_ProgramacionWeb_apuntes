@@ -1,35 +1,29 @@
+
+<br>
 <div class="row">
-	<table class="col-md-offset-2 col-md-6 table-striped table-bordered">
+	<table class="col-md-offset-3 col-md-6 table-striped table-bordered">
 		<thead>
-			<!-- <tr ng-init="ordenacion.sentido = false; ordenacion.campo = 'title'"> -->
 			<tr>
 				<td ng-click="ordenacion.campo = 'id'; ordenacion.sentido = ! ordenacion.sentido">
 					ID
 					<span ng-show="ordenacion.sentido==true && ordenacion.campo=='id'" class="glyphicon glyphicon-menu-down"></span>
 					<span ng-show="ordenacion.sentido==false && ordenacion.campo=='id'" class="glyphicon glyphicon-menu-up"></span>
-					<span ng-show="ordenacion.campo!='id'" class="glyphicon glyphicon-unchecked"></span>
 				</td>
 				<td>USER ID</td>
 				<td ng-click="ordenacion.campo = 'title'; ordenacion.sentido = ! ordenacion.sentido">
 					TITLE
 					<span ng-show="ordenacion.sentido==true && ordenacion.campo=='title'" class="glyphicon glyphicon-menu-down"></span>
 					<span ng-show="ordenacion.sentido==false && ordenacion.campo=='title'" class="glyphicon glyphicon-menu-up"></span>
-					<span ng-show="ordenacion.campo!='title'" class="glyphicon glyphicon-unchecked"></span>
 				</td>
 			</tr>
 		</thead>
 		<tbody>
 			<tr ng-repeat="usuario in datosUsuario | orderBy:ordenacion.campo:ordenacion.sentido ">
-				<td>{{ usuario.id }}</td>
+				<td><a ng-href="#/id/{{ usuario.id }}">{{ usuario.id }}</a></td>
 				<td>{{ usuario.userId }}</td>
 				<td>{{ usuario.title }}</td>
 			</tr>
 		</tbody>
 	</table>
-	<div ng-bind="ordenacion.campo"></div>
-	<div ng-bind="ordenacion.sentido"></div>
 </div>
 <br>
-<div class="row">
-	<a href="#/">Ver todos los Usuarios</a>
-</div>

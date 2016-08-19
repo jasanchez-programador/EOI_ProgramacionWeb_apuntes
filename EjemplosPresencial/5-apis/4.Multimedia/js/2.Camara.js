@@ -25,10 +25,12 @@ $(document).ready(function(){
 	$('button#inicio').on('click',function(){
 		// si soporta getUserMedia para chrome
 		if (navigator.webkitGetUserMedia){
+			console.log("entro")
 			// PARAMETRO 1: pedimos video y audio
 			navigator.webkitGetUserMedia({video: true, audio: true}, 
 				// PARAMETRO 2: funcion de ok que recibe el flujo de camara y microfono
 				function(flujoCamara) {
+					console.log("entro2")
 					// le damos los datos al objeto del window
 					// para poder parar la grabacion
 					datosVideo.flujo = flujoCamara;

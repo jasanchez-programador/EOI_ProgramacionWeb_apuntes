@@ -1,7 +1,7 @@
 
 $(document).ready(function(){
 	// instanciamos worker
-	var worker = new Worker('//localhost:8000/Documentos/MisCursos/HTML5_CSS_JavaScript-moviles/curso/javascript/42-Ejercicio_Worker_JSON.js');
+	var worker = new Worker('js/2.Ejercicio_Worker_JSON.js');
 	// Ver por consola si hay errores
 	worker.onerror = function(e){
 		console.log("ERROR del WORKER");

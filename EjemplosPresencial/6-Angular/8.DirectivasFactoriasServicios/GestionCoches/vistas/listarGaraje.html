@@ -1,0 +1,25 @@
+<br>
+<div class="row">
+	<h2 class="text-center text-danger">Estos son los coches disponibles en el garaje</h2>
+</div>
+<br>
+<div class="row">
+	<div class="text-center">
+		<table class="table table-striped table-bordered table-condensed text-center" >
+			<thead>
+				<tr>
+					<td ng-scale-hover ng-repeat="(k,v) in almacenCoches[0]" ng-if="esAttrVw(k)">
+						{{ k | uppercase }}
+					</td>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="coche in almacenCoches">
+					<td ng-repeat="(k,v) in coche" ng-if="v.length > 0">
+						{{ v }}
+					</td>
+				</tr>
+			</tbody>
+		</div>
+	</div>
+</div>
