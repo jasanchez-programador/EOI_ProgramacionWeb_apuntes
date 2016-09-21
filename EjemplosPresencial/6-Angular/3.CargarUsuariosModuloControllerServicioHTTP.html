@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-ng-app="tablaUsuariosApp" data-ng-controller="datosTablaCtrl">
+<html lang="en">
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Usuarios de placeHolder en Tabla </title>
@@ -44,7 +44,7 @@
     </style>
 
   </head>
-  <body>
+  <body data-ng-app="tablaUsuariosApp" data-ng-controller="datosTablaCtrl">
     <div class="container">
       <br>
       <div class="row">
@@ -58,12 +58,12 @@
         </li>
       </ul>
       <!-- para los valores -->
-      <ul class="list-inline">
-        <div ng-repeat="(pos,objeto) in usuarios"> 
-          <li class="list-item col-md-3" ng-repeat="v in objeto">
-            {{ v }}
+      <ul class="list-inline" ng-repeat="usuario in usuarios">
+       
+          <li class="list-item col-md-3" ng-repeat="attr in usuario">
+            {{ attr }}
           </li>
-        </div>
+       
       </ul>
     </div>
   </body>

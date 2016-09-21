@@ -17,8 +17,8 @@ var Ctrl = (function(){
 	// funcion que controla la vista cuando queremos ver un usuario concreto
 	var _idCtrl = function($http,$scope,$routeParams){
 		// $routeParams recoge el :id pasado desde la config
-		$scope.id = $routeParams.id;
-		$http.get('http://jsonplaceholder.typicode.com/posts?id='+$scope.id)
+		//$scope.id = $routeParams.id;
+		$http.get('http://jsonplaceholder.typicode.com/posts?id='+$routeParams.id)
 			.success(function(datosId){
 				$scope.datosId = datosId[0];
 			})
@@ -31,7 +31,8 @@ var Ctrl = (function(){
 	// funcion que controla la vista cuando queremos ver un usuario concreto
 	var _usuarioCtrl = function($http,$scope,$routeParams){
 		// $routeParams recoge el :userId pasado desde la config
-		$scope.userId = $routeParams.userId;
+		//$scope.userId = $routeParams.userId;
+		
 		// inicializamos objeto ordenacion que permitira ordenar la tabla 
 		// por TITULO descendente por defecto
 		// o por ID 
@@ -39,7 +40,7 @@ var Ctrl = (function(){
 		$scope.ordenacion.sentido = false; 
 		$scope.ordenacion.campo = 'title';
 
-		$http.get('http://jsonplaceholder.typicode.com/posts?userId='+$scope.userId)
+		$http.get('http://jsonplaceholder.typicode.com/posts?userId='+$routeParams.userId)
 			.success(function(datosUsuario){
 				$scope.datosUsuario = datosUsuario;
 				//console.log(JSON.stringify(datosUsuario))

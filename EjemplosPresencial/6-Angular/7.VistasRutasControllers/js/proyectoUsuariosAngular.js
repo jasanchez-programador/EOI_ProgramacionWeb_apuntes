@@ -10,6 +10,7 @@ usuariosModulo.config(['$routeProvider',function($routeProvider) {
 		//:id es un parametro pasado a la URL
 		// el controlador los recoge en $routeParams.id
 		// se ha generado desde alguna otra vista!!!
+		// SOLO SE CONOCE EL VALOR CUANDO SE EJECUTE EN EL NAVEGADOR
 		when("/id/:id",{
 			templateUrl:'vistas/id.html',
 			controller: Ctrl.idCtrl
@@ -17,6 +18,7 @@ usuariosModulo.config(['$routeProvider',function($routeProvider) {
 		//:userId es un parametro pasado a la URL
 		// el controlador los recoge en $routeParams.userId
 		// se ha generado desde alguna otra vista!!!
+		// SOLO SE CONOCE EL VALOR CUANDO SE EJECUTE EN EL NAVEGADOR
 		when("/usuario/:userId",{
 			templateUrl:'vistas/usuario.html',
 			controller: Ctrl.usuarioCtrl

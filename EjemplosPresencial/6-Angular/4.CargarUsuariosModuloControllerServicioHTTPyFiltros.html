@@ -11,8 +11,10 @@
     <!-- JavaScript de Bootstrap -->
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     <!-- JavaScript con TODO Angular1 -->
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
     <!-- // <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.9/angular.min.js"></script> -->
+    <!-- libreria angular para modena, fecha, ... en formato español -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-i18n/1.5.7/angular-locale_eu-es.min.js"></script>
     <script>
         // MODULO
         var tablaUsuariosModule = angular.module('tablaUsuariosModule', []);
@@ -35,6 +37,30 @@
               .error(function(error) {
                   console.log("errorr");
                 })
+        })
+        // Filtro para usuarios que contienen en id o body la cadena introducida por el usuario
+        tablaUsuariosModule.filter('filtroOrCampos',function($log){
+          return function(usuarios,scope){
+            // 1.usuarios:  array de los usuarios que inicializamos con AJAX en el controlador
+            // es lo que recibe ng-repeat del ul
+            // 2.scope: es el scope del controlador, para tener acceso al modelo y usar el filtro introducido por el usuario en el input
+            // disponible SOLO si ponemos :this en el filtro
+            if (scope.filtro === undefined){
+              // si acaba de cargar la pagina y no se ha creado en el modelo la variable filtro que se muestren TODOS los usuarios
+              return usuarios
+            }
+            else{
+              var usuariosFiltrados = [] // array con los usuarios filtrados a devolver
+              angular.forEach(usuarios,function(usuario){
+                // Para cada usuario
+                if (usuario.body.indexOf(scope.filtro) >= 0  || usuario.id.toString().indexOf(scope.filtro) >= 0 ){
+                  usuariosFiltrados.push(usuario)
+                  // si la cadena introducida por el usuario es parte del body o del id devolvemos el usuario
+                }
+              })
+              return usuariosFiltrados
+            }
+          }
         })
     </script>
     <style>
@@ -83,14 +109,18 @@
       </ul>
       
       <!-- para los valores -->
-      <ul class="list-inline" ng-repeat="(pos,objeto) in usuarios | orderBy:'title':true | filter:filtro">
-<!-- FILTRAMOS por la cadena introducida por el usuario 
+<!--  <ul class="list-inline" ng-repeat="(pos,objeto) in usuarios | orderBy:'title':true | filter:filtro">
+ FILTRAMOS por la cadena introducida por el usuario comparando con:
+ TODOS LOS CAMPOS
+ o
+ Solo el campo body (si modificamos el ng-model=filtro)
 en el INPUT con ng-model "filtro"  -->
+        <ul class="list-inline" ng-repeat="(pos,objeto) in usuarios | orderBy:'title':true | filtroOrCampos:this">
           <li ng-if="(k == 'userId')" class="list-item col-md-1" ng-repeat="(k, v) in objeto">
             {{ v | number:2 }}
           </li>
           <li ng-if="(k == 'id')" class="list-item col-md-1" ng-repeat="(k, v) in objeto">
-            {{ v | currency }}
+            {{ v | currency }} <!-- al poner la libreria de eu-es de angular sale en euro -->
             <!-- EN EUROS: {{ v | currency:'€'}} -->
           </li>
           <li ng-if="k == 'title'" class="list-item col-md-3" ng-repeat="(k, v) in objeto">

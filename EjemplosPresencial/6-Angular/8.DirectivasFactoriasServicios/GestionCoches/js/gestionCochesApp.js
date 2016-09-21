@@ -15,9 +15,10 @@ gestionCochesMod.directive('ngScaleHover', function(){
 	// Runs during compile
 	return {
 		restrict: 'A', // sera atributo ng-scale-Hover
-		link: Ctrl.Drtvs.Links.tamanyoElementoHover, // Para modificar el DOM 
+		link: Ctrl.Drtvs.Links.tamanyoElementoHover // Para modificar el DOM 
 	};
 });
+
 
 gestionCochesMod.service('cochesSrv', Srv.coche)
 gestionCochesMod.factory('garajeFctr', Fctr.garaje);
